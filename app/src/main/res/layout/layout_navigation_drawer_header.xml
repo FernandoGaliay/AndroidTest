@@ -26,6 +26,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/normal"
-        android:text="@string/navigation_title" />
+        android:text="@string/navigation_label_title" />
 
 </RelativeLayout>

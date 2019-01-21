@@ -29,6 +29,6 @@ public class RecyclerViewActivity extends BaseToolbarActivity {
 
     @Override
     protected Toolbar getToolbar() {
-        return ;
+        return toolbar;
     }
 }

@@ -9,29 +9,29 @@ import android.view.MenuItem
 import com.example.androidtest.BaseToolbarActivity
 import com.example.androidtest.R
 import com.example.androidtest.recyclerview.ui.RecyclerViewActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : BaseToolbarActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setFragment(R.id.main_container, DashboardFragment.newInstance())
+        setContentView(R.layout.activity_dashboard)
+        setFragment(R.id.dashboard_container, DashboardFragment.newInstance())
         setupBottomNavigation()
         setupToolbar()
 
     }
 
     fun setupToolbar() {
-        setSupportActionBar(main_toolbar)
+        setSupportActionBar(dashboard_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val drawerToggle = ActionBarDrawerToggle(this, main_drawer, main_toolbar, 0, 0)
+        val drawerToggle = ActionBarDrawerToggle(this, dashboard_drawer, dashboard_toolbar, 0, 0)
         drawerToggle.isDrawerIndicatorEnabled = true
         drawerToggle.syncState()
     }
 
     fun setupBottomNavigation() {
-        main_bottom_navigation.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener {
+        dashboard_navigation_bottom.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
                 when (menuItem.itemId) {
                     R.id.menu_bottom_option_recycler -> RecyclerViewActivity.startActivity(this@DashboardActivity)
@@ -43,6 +43,6 @@ class DashboardActivity : BaseToolbarActivity() {
     }
 
     override fun getToolbar(): Toolbar {
-        return main_toolbar
+        return dashboard_toolbar
     }
 }
