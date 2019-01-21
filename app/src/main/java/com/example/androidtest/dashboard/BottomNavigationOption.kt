@@ -7,6 +7,9 @@ import com.example.androidtest.recyclerview.ui.RecyclerViewActivity
 sealed class BottomNavigationOption(val id: Int) {
 
     companion object {
+
+        const val NO_ACTION = -1
+
         fun convertIdToBottomNavigationOption(actionId: Int): BottomNavigationOption {
             when (actionId) {
                 RecyclerOption().id -> return RecyclerOption()
@@ -15,20 +18,22 @@ sealed class BottomNavigationOption(val id: Int) {
         }
     }
 
-    abstract fun startActivity(context: Context)
+    abstract fun action(context: Context)
 
-    /* Inner Classes */
+    //region Inner Classes
 
     class RecyclerOption : BottomNavigationOption(R.id.menu_bottom_option_recycler) {
-        override fun startActivity(context: Context) {
+        override fun action(context: Context) {
             RecyclerViewActivity.startActivity(context)
         }
     }
 
-    class NoActionOption : BottomNavigationOption(-1){
-        override fun startActivity(context: Context) {
+    class NoActionOption : BottomNavigationOption(NO_ACTION) {
+        override fun action(context: Context) {
             // Nothing to do
         }
     }
+
+    //endregion
 }
 
