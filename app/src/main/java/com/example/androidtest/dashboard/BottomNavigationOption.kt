@@ -10,7 +10,7 @@ sealed class BottomNavigationOption(val id: Int) {
         fun convertIdToBottomNavigationOption(actionId: Int): BottomNavigationOption {
             when (actionId) {
                 RECYCLER().id -> return RECYCLER()
-                else -> return RECYCLER()
+                else -> return NO_ACTION()
             }
         }
     }
@@ -22,6 +22,12 @@ sealed class BottomNavigationOption(val id: Int) {
     class RECYCLER : BottomNavigationOption(R.id.menu_bottom_option_recycler) {
         override fun startActivity(context: Context) {
             RecyclerViewActivity.startActivity(context)
+        }
+    }
+
+    class NO_ACTION : BottomNavigationOption(-1){
+        override fun startActivity(context: Context) {
+            // Nothing to do
         }
     }
 }
