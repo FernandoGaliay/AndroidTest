@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/bottom_navigation_home"
+        android:id="@+id/menu_main_option_home"
         android:enabled="true"
         android:icon="@android:drawable/ic_dialog_info"
         android:title="@string/menu_option_home"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_group"
+        android:id="@+id/menu_main_group_secondary"
         android:title="@string/menu_option_secondary_section" >
 
         <menu>
 
             <item
-                android:id="@+id/menu_option_recycler"
+                android:id="@+id/menu_main_option_recycler"
                 android:enabled="true"
                 android:icon="@android:drawable/ic_dialog_dialer"
                 android:title="@string/menu_option_recyclerview"

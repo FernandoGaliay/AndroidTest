@@ -33,7 +33,7 @@ class MainActivity : BaseToolbarActivity() {
         main_bottom_navigation.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
                 when (menuItem.itemId) {
-                    R.id.bottom_option_recycler -> RecyclerViewActivity.startActivity(this@MainActivity)
+                    R.id.menu_bottom_option_recycler -> RecyclerViewActivity.startActivity(this@MainActivity)
                     else -> Log.i(javaClass.simpleName, "Nothing to do")
                 }
                 return true
