@@ -21,9 +21,12 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(fragmentLayout(), container, false);
-        if (getActivity() instanceof MainActivity) {
-            configureToolbar(((MainActivity) getActivity()).getToolbar());
+
+        if (getActivity() instanceof BaseToolbarActivity &&
+                ((BaseToolbarActivity) getActivity()).getToolbar() != null) {
+            configureToolbar(((BaseToolbarActivity) getActivity()).getToolbar());
         }
 
         return view;
