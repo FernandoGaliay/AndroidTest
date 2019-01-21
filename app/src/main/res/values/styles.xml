@@ -14,6 +14,7 @@
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>
 
+    <!-- Text Styles -->
 
     <style name="Text_Normal">
         <item name="android:textSize">@dimen/text_normal</item>
@@ -23,23 +24,28 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="Button_Primary">
-        <item name="android:background">@color/colorPrimary</item>
+    <style name="Button">
         <item name="android:foreground">?selectableItemBackground</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">@dimen/normal</item>
     </style>
 
-    <style name="Button_Primary.Text_Normal_White" parent="Button_Primary">
+    <!-- Button Styles -->
+
+    <style name="Button.Primary" parent="Button">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="Button.Primary.Text_Normal_White" parent="Button.Primary">
         <item name="android:textAppearance">@style/Text_Normal.White</item>
     </style>
 
-    <style name="Button_Primary.Text_Normal_White.One_Line" parent="Button_Primary.Text_Normal_White">
+    <style name="Button.Primary.Text_Normal_White.One_Line" parent="Button.Primary.Text_Normal_White">
         <item name="android:lines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="Button_Primary.Text_Normal_White.Two_Line" parent="Button_Primary.Text_Normal_White">
+    <style name="Button.Primary.Text_Normal_White.Two_Line" parent="Button.Primary.Text_Normal_White">
         <item name="android:lines">2</item>
         <item name="android:ellipsize">end</item>
     </style>
