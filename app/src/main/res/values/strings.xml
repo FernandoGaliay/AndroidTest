@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidTest</string>
+    <string name="dashboard_title">Dashboard</string>
+    <string name="menu_option_home">Inicio</string>
+    <string name="navigation_title">Anónimo</string>
+    <string name="menu_option_secondary_section">Opciones secundarias</string>
+    <string name="menu_option_recyclerview">RecyclerView</string>
+    <string name="navigation_bottom_recyclerview">RecyclerView</string>
+    <string name="menu_option_more_options">Más opciones</string>
+    <string name="dashboard_recyclerview">Paging RecyclerView</string>
+</resources>
