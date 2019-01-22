@@ -7,12 +7,16 @@ import android.support.v7.widget.Toolbar;
 
 public abstract class BaseToolbarActivity extends AppCompatActivity {
 
-    public void setFragment(int containerId, Fragment fragment) {
+    public void setFragment(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(containerId, fragment);
+        ft.replace(getContainerId(), fragment);
         ft.addToBackStack(null);
         ft.commit();
     }
 
     protected abstract Toolbar getToolbar();
+
+    protected abstract int getLayoutId();
+
+    protected abstract int getContainerId();
 }

@@ -20,4 +20,5 @@ public class RecyclerRepositoryUtil {
         recyclerDataList.add(new RecyclerData("Pablo", Calendar.getInstance().getTime(), RECYCLER_IMAGE_URL, 86, true, "This is my message", true));
         return recyclerDataList;
     }
+
 }

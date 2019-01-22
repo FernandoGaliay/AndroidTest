@@ -2,7 +2,7 @@ package com.example.androidtest.dashboard
 
 import android.content.Context
 import com.example.androidtest.R
-import com.example.androidtest.recyclerview.ui.RecyclerViewActivity
+import com.example.androidtest.recyclerview.ui.RecyclerViewFragment
 
 sealed class BottomNavigationOption(val id: Int) {
 
@@ -24,7 +24,9 @@ sealed class BottomNavigationOption(val id: Int) {
 
     class RecyclerOption : BottomNavigationOption(R.id.menu_bottom_option_recycler) {
         override fun action(context: Context) {
-            RecyclerViewActivity.startActivity(context)
+            if (context is DashboardActivity) {
+                context.setFragment(RecyclerViewFragment.newInstance())
+            }
         }
     }
 

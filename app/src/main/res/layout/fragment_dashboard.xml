@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/dashboard_firstoption_label"
-        style="@style/Button_Primary.Text_Normal_White.Two_Line"
+        style="@style/Button.Primary.Text_Normal_White.Two_Line"
         android:layout_width="126dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/dashboard_secondoption_label"
-        style="@style/Button_Primary.Text_Normal_White.Two_Line"
+        style="@style/Button.Primary.Text_Normal_White.Two_Line"
         android:layout_width="126dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/dashboard_thirdoption_label"
-        style="@style/Button_Primary.Text_Normal_White.Two_Line"
+        style="@style/Button.Primary.Text_Normal_White.Two_Line"
         android:layout_width="127dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

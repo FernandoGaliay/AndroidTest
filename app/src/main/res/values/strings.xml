@@ -8,4 +8,5 @@
     <string name="navigation_bottom_recyclerview">RecyclerView</string>
     <string name="menu_option_more_options">Más opciones</string>
     <string name="dashboard_recyclerview">Paging RecyclerView</string>
+    <string name="recycler_title">Recyclerview Example</string>
 </resources>

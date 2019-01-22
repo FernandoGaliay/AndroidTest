@@ -24,11 +24,21 @@ public class RecyclerViewActivity extends BaseToolbarActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reciclerview);
+        setContentView(getLayoutId());
     }
 
     @Override
     protected Toolbar getToolbar() {
         return toolbar;
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_reciclerview;
+    }
+
+    @Override
+    protected int getContainerId() {
+        return R.id.recyclerview_container;
     }
 }
