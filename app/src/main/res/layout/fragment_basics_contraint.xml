@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/basic_constraints_top_img"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/basic_constraints_header_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_face" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/basic_constraints_header_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <TextView
+        android:id="@+id/basic_constraints_title_label"
+        style="@style/Text_Normal.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/basic_constraints_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/basic_constraints_header_guideline" />
+
+    <TextView
+        android:id="@+id/basic_constraints_description_label"
+        style="@style/Text_Normal.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/basic_constraints_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/basic_constraints_title_label" />
+
+    <TextView
+        android:id="@+id/basic_constraints_resume_label"
+        style="@style/Text_Normal.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/basic_constraints_resume"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/basic_constraints_description_label" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/basic_constraints_labels_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="basic_constraints_title_label,basic_constraints_resume_label,basic_constraints_description_label" />
+
+    <EditText
+        android:id="@+id/basic_constraints_title_input"
+        style="@style/Text_Normal.Grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBaseline_toBaselineOf="@+id/basic_constraints_title_label"
+        app:layout_constraintLeft_toRightOf="@id/basic_constraints_labels_barrier" />
+
+    <EditText
+        android:id="@+id/basic_constraints_description_input"
+        style="@style/Text_Normal.Grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBaseline_toBaselineOf="@id/basic_constraints_description_label"
+        app:layout_constraintLeft_toRightOf="@id/basic_constraints_labels_barrier" />
+
+    <EditText
+        android:id="@+id/basic_constraints_resume_input"
+        style="@style/Text_Normal.Grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginStart="@dimen/small"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintLeft_toRightOf="@id/basic_constraints_labels_barrier"
+        app:layout_constraintBaseline_toBaselineOf="@id/basic_constraints_resume_label" />
+
+</android.support.constraint.ConstraintLayout>

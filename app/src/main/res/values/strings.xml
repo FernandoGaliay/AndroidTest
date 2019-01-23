@@ -9,4 +9,9 @@
     <string name="menu_option_more_options">Más opciones</string>
     <string name="dashboard_recyclerview">Paging RecyclerView</string>
     <string name="recycler_title">Recyclerview Example</string>
+    <string name="basics_contraints_title">Basic Constraints</string>
+    <string name="go_to_basic_constraints">go to Basic Constraints</string>
+    <string name="basic_constraints_title">Title</string>
+    <string name="basic_constraints_description">Description:</string>
+    <string name="basic_constraints_resume">Resume:</string>
 </resources>

@@ -3,4 +3,5 @@
     <dimen name="app_bar_height">250dp</dimen>
     <dimen name="text_normal">18sp</dimen>
     <dimen name="normal">16dp</dimen>
+    <dimen name="small">8dp</dimen>
 </resources>

@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".recyclerview.ui.RecyclerViewActivity" />
+        <activity android:name=".contraint.ConstraintActivity" />
     </application>
 
 </manifest>

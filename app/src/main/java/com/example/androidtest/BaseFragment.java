@@ -29,10 +29,14 @@ public abstract class BaseFragment extends Fragment {
             configureToolbar(((BaseToolbarActivity) getActivity()).getToolbar());
         }
 
+        setupView(view);
+
         return view;
     }
 
     protected abstract int fragmentLayout();
 
     protected abstract void configureToolbar(Toolbar toolbar);
+
+    protected abstract void setupView(View view);
 }
