@@ -11,8 +11,7 @@ class DashboardActivity : BaseToolbarActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
-        setFragment(R.id.dashboard_container, DashboardFragment.newInstance())
+        setFragment(DashboardFragment.newInstance())
         setupBottomNavigation()
         setupToolbar()
 
@@ -35,5 +34,13 @@ class DashboardActivity : BaseToolbarActivity() {
 
     override fun getToolbar(): Toolbar {
         return dashboard_toolbar
+    }
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_dashboard
+    }
+
+    override fun getContainerId(): Int {
+        return R.id.dashboard_container
     }
 }

@@ -25,6 +25,14 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="Text_Normal.Black" parent="Text_Normal">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Text_Normal.Grey" parent="Text_Normal">
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
     <!-- Button Styles -->
 
     <style name="Button">
@@ -49,5 +57,18 @@
     <style name="Button.Primary.Text_Normal_White.Two_Line" parent="Button.Primary.Text_Normal_White">
         <item name="android:lines">2</item>
         <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Form styles -->
+    <style name="Form">
+        <item name="android:padding">@dimen/normal</item>
+    </style>
+
+    <style name="Form.Input" parent="Form">
+        <item name="android:textAppearance">@style/Text_Normal.Grey</item>
+    </style>
+
+    <style name="Form.Label" parent="Form">
+        <item name="android:textAppearance">@style/Text_Normal.Black</item>
     </style>
 </resources>
