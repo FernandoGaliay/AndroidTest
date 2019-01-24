@@ -21,6 +21,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
+    <android.support.constraint.Group
+        android:id="@+id/basic_constraints_labels_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="basic_constraints_resume_label, basic_constraints_description_label, basic_constraints_resume_input, basic_constraints_description_input"/>
+
     <TextView
         android:id="@+id/basic_constraints_title_label"
         style="@style/Text_Normal.Black"
@@ -69,7 +76,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         app:layout_constraintBaseline_toBaselineOf="@+id/basic_constraints_title_label"
         app:layout_constraintLeft_toRightOf="@id/basic_constraints_labels_barrier" />
 
@@ -81,7 +88,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         app:layout_constraintBaseline_toBaselineOf="@id/basic_constraints_description_label"
         app:layout_constraintLeft_toRightOf="@id/basic_constraints_labels_barrier" />
 
@@ -93,7 +100,7 @@
         android:ems="10"
         android:layout_marginStart="@dimen/small"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         app:layout_constraintLeft_toRightOf="@id/basic_constraints_labels_barrier"
         app:layout_constraintBaseline_toBaselineOf="@id/basic_constraints_resume_label" />
 
