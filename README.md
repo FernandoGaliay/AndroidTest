@@ -20,7 +20,7 @@ Repository
 * LiveData
 - Datasources
 
-*Java File*: https://github.com/FernandoGaliay/AndroidTest/blob/development/app/src/main/java/com/example/androidtest/api/repository/FruitRepository.java
+*Java Files*: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/api/repository
 
 
 Job Scheduler
