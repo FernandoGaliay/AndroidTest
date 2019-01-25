@@ -9,6 +9,8 @@ import java.util.List;
 
 public class FruitRepository {
 
+    //region Initialization
+
     private FruitApiDataSource fruitApiDataSource;
 
     private FruitCacheDataSource fruitCacheDataSource;
@@ -19,6 +21,8 @@ public class FruitRepository {
         fruitCacheDataSource = new FruitCacheDataSource();
 
     }
+
+    //endregion
 
     //region Repository Calls
 
@@ -35,6 +39,7 @@ public class FruitRepository {
         } else {
 
             fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBO>>() {
+
                 @Override
                 public void onSuccess(List<FruitBO> data) {
 
