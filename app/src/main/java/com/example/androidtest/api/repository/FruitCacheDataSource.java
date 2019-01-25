@@ -13,18 +13,8 @@ public class FruitCacheDataSource extends FruitDataSource<FruitBO> {
     @Override
     public void getAsyncData(int limit, int offset, Callback<List<FruitBO>> callback) {
 
-        int pageStart = limit * 10;
+        callback.onSuccess(getData(limit, offset));
 
-        try {
-
-            callback.onSuccess(getFruitBOList().subList(pageStart, pageStart + offset));
-
-        } catch (Exception e) {
-
-            Log.w(getClass().getSimpleName(), e.getMessage());
-            callback.onError(e.getMessage());
-
-        }
     }
 
     @Override
