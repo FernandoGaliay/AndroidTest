@@ -6,6 +6,7 @@ Constraint Layout
 * Guideline
 * Barrier
 * Group
+
 // TODO
 - Placeholder
 - Circular Constraint
@@ -19,6 +20,7 @@ Constraint Layout
 Repository
 ----
 * LiveData
+
 // TODO
 - Datasources
 
