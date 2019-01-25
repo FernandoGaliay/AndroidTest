@@ -1,4 +1,4 @@
-package com.example.androidtest.recyclerview.repository;
+package com.example.androidtest.paging.repository;
 
 import com.example.androidtest.recyclerview.data.RecyclerData;
 

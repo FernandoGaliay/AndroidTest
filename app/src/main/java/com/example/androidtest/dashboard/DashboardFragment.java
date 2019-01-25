@@ -48,7 +48,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         }
     }
 
-    //end region
+    //endregion
 
 
 }

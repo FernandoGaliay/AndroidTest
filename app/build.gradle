@@ -16,6 +16,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "URL", "\"https://data.ct.gov/resource/hma6-9xbg.json\""
+        }
+        debug{
+            minifyEnabled false
+            debuggable true
+            buildConfigField "String", "URL", "https://data.ct.gov/resource/hma6-9xbg.json"
         }
     }
     compileOptions {
@@ -32,6 +38,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.jakewharton:butterknife:$butterknife_version"
     implementation "com.github.bumptech.glide:glide:$glide_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
 
 
     testImplementation 'junit:junit:4.12'
