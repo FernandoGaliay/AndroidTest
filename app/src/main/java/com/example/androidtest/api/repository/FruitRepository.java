@@ -3,35 +3,22 @@ package com.example.androidtest.api.repository;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
-import com.example.androidtest.api.service.FruitService;
 import com.example.androidtest.data.bo.FruitBO;
-import com.example.androidtest.data.dto.FruitDTO;
-import com.example.androidtest.data.mapper.FruitMapper;
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class FruitRepository {
 
-    //region Singletone Instance
+    private FruitApiDataSource fruitApiDataSource;
 
-    private static FruitRepository fruitRepository;
+    private FruitCacheDataSource fruitCacheDataSource;
 
-    public static FruitRepository newInstance() {
-        if (fruitRepository == null) {
-            fruitRepository = new FruitRepository();
-        }
-        return fruitRepository;
+    public FruitRepository() {
+
+        fruitApiDataSource = new FruitApiDataSource();
+        fruitCacheDataSource = new FruitCacheDataSource();
+
     }
-
-    private FruitRepository() {
-        // Nothing to do
-    }
-
-    //endregion
 
     //region Repository Calls
 
@@ -41,24 +28,33 @@ public class FruitRepository {
 
     public LiveData<List<FruitBO>> getFruits(int limit, int offset) {
 
-        if (fruitRepository.fruitsLiveData.getValue() == null) {
+        if (fruitCacheDataSource.getData(limit, offset) != null) {
 
-            FruitService.create()
-                    .getFruits(FruitService.CATEGORY_FRUIT, limit, offset)
-                    .enqueue(new Callback<List<FruitDTO>>() {
-                        @Override
-                        public void onResponse(Call<List<FruitDTO>> call, Response<List<FruitDTO>> response) {
-                            fruitsLiveData.setValue(FruitMapper.dtoToBO(response.body()));
-                        }
+            fruitsLiveData.setValue(fruitCacheDataSource.getData(limit, offset));
 
-                        @Override
-                        public void onFailure(Call<List<FruitDTO>> call, Throwable t) {
-                            errorLiveData.setValue(t.getMessage());
-                        }
-                    });
+        } else {
+
+            fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBO>>() {
+                @Override
+                public void onSuccess(List<FruitBO> data) {
+
+                    fruitCacheDataSource.setData(data);
+                    fruitsLiveData.setValue(data);
+
+                }
+
+                @Override
+                public void onError(String message) {
+
+                    fruitCacheDataSource.setData(null);
+                    errorLiveData.setValue(message);
+
+                }
+            });
+
         }
 
-        return fruitRepository.fruitsLiveData;
+        return fruitsLiveData;
     }
 
     //endregion
