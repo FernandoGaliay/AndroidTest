@@ -16,7 +16,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "URL", "https://data.ct.gov/resource/hma6-9xbg.json"
+            buildConfigField "String", "URL", "\"https://data.ct.gov/resource/hma6-9xbg.json\""
         }
         debug{
             minifyEnabled false
