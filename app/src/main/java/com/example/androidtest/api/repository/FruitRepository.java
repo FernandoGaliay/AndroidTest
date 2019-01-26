@@ -30,7 +30,7 @@ public class FruitRepository {
 
     //region Repository Calls
 
-    public LiveData<List<FruitBO>> getFruits(int limit, int offset) {
+    public MutableLiveData<List<FruitBO>> getFruits(int limit, int offset) {
 
         if (fruitCacheDataSource.getData(limit, offset) != null) {
 
