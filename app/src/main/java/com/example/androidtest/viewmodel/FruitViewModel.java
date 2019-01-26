@@ -50,7 +50,7 @@ public class FruitViewModel extends ViewModel {
 
     public void searchFruits(int limit, int offset) {
 
-        searchFruits(limit, offset);
+        fruitQueryLiveData.setValue(new FruitQueryBO(limit, offset));
 
     }
 
