@@ -11,13 +11,13 @@ import retrofit2.http.Query;
 
 public interface FruitService {
 
-    static final String CATEGORY_FRUIT = "Fruit";
+    String CATEGORY_FRUIT = "Fruit";
 
-    public static FruitService create() {
+    static FruitService create() {
         return ApiClient.getClient().create(FruitService.class);
     }
 
-    @GET
-    Call<List<FruitDTO>> getFruits(@Query("category") String category, @Query("limit") int limit, @Query("offset") int offset);
+    @GET("resource/hma6-9xbg.json")
+    Call<List<FruitDTO>> getFruits(@Query("category") String category, @Query("$limit") int limit, @Query("$offset") int offset);
 
 }

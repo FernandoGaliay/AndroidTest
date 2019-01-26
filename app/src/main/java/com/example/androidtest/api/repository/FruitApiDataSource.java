@@ -19,6 +19,7 @@ public class FruitApiDataSource extends FruitDataSource<FruitBO> {
     public void getAsyncData(int limit, int offset, Callback<List<FruitBO>> callback) {
 
         FruitService.create().getFruits(FruitService.CATEGORY_FRUIT, limit, offset).enqueue(new retrofit2.Callback<List<FruitDTO>>() {
+
             @Override
             public void onResponse(Call<List<FruitDTO>> call, Response<List<FruitDTO>> response) {
 

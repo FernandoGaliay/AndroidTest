@@ -24,11 +24,11 @@ public class FruitRepository {
 
     //endregion
 
-    //region Repository Calls
-
     private MutableLiveData<List<FruitBO>> fruitsLiveData = new MutableLiveData<>();
 
     private MutableLiveData<String> errorLiveData = new MutableLiveData<>();
+
+    //region Repository Calls
 
     public LiveData<List<FruitBO>> getFruits(int limit, int offset) {
 
@@ -64,4 +64,15 @@ public class FruitRepository {
 
     //endregion
 
+    //region Getters And Setters
+
+    public MutableLiveData<List<FruitBO>> getFruitsLiveData() {
+        return fruitsLiveData;
+    }
+
+    public MutableLiveData<String> getErrorLiveData() {
+        return errorLiveData;
+    }
+
+    //endregion
 }
