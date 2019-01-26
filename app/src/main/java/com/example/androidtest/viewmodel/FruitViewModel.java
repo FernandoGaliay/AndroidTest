@@ -2,7 +2,6 @@ package com.example.androidtest.viewmodel;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 
 import com.example.androidtest.api.repository.FruitRepository;
@@ -15,11 +14,9 @@ public class FruitViewModel extends ViewModel {
 
     private FruitRepository fruitRepository;
 
-    private MutableLiveData<FruitQueryBO> fruitQueryLiveData = new MutableLiveData<>();
+    private FruitQueryBO fruitQuery;
 
-    private LiveData<List<FruitBO>> fruitsLiveData = Transformations.map(fruitQueryLiveData, query ->
-            fruitRepository.getFruits(query.getLimit(), query.getOffset()).getValue()
-    );
+    private LiveData<List<FruitBO>> fruitsLiveData;
 
     private MutableLiveData<String> errorLiveData;
 
@@ -27,6 +24,7 @@ public class FruitViewModel extends ViewModel {
 
         fruitRepository = new FruitRepository();
         errorLiveData = fruitRepository.getErrorLiveData();
+        fruitsLiveData = fruitRepository.getFruitsLiveData();
 
     }
 
@@ -48,17 +46,20 @@ public class FruitViewModel extends ViewModel {
 
     //region Use Cases
 
-    public void searchFruits(int limit, int offset) {
-
-        fruitQueryLiveData.setValue(new FruitQueryBO(limit, offset));
-
-    }
-
     public void nextSearchFruits() {
 
-        FruitQueryBO fruitQuery = fruitQueryLiveData.getValue();
-        fruitQuery.setOffset(fruitQuery.getOffset() + 1);
-        fruitQueryLiveData.setValue(fruitQuery);
+        if (fruitQuery == null) {
+
+            fruitQuery = new FruitQueryBO(10);
+
+        } else {
+
+            fruitQuery.setOffset(fruitQuery.getOffset() + 1);
+
+        }
+
+        fruitRepository.getFruits(fruitQuery.getLimit(), fruitQuery.getOffset());
+
     }
 
     //endregion
