@@ -18,7 +18,7 @@ Constraint Layout
 Repository
 ----
 * LiveData
-- Datasources
+* Datasources
 
 *Java Files*: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/api/repository
 
