@@ -2,33 +2,33 @@ package com.example.androidtest.api.repository;
 
 import android.util.Log;
 
-import com.example.androidtest.data.FruitQueryBO;
-import com.example.androidtest.data.bo.FruitBO;
+import com.example.androidtest.data.bo.FruitBo;
+import com.example.androidtest.data.bo.FruitQueryBo;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class FruitCacheDataSource extends FruitDataSource<FruitBO> {
+public class FruitCacheDataSource extends FruitDataSource<FruitBo> {
 
-    private HashMap<FruitQueryBO, List<FruitBO>> queryFruitListMap;
+    private HashMap<FruitQueryBo, List<FruitBo>> queryFruitListMap;
 
     public FruitCacheDataSource() {
         queryFruitListMap = new HashMap<>();
     }
 
     @Override
-    public void getAsyncData(int limit, int offset, Callback<List<FruitBO>> callback) {
+    public void getAsyncData(int limit, int offset, Callback<List<FruitBo>> callback) {
 
         callback.onSuccess(getData(limit, offset));
 
     }
 
     @Override
-    public List<FruitBO> getData(int limit, int offset) {
+    public List<FruitBo> getData(int limit, int offset) {
 
         try {
 
-            return getFruitBOList(limit, offset);
+            return getFruitBoList(limit, offset);
 
         } catch (Exception e) {
 
@@ -38,23 +38,27 @@ public class FruitCacheDataSource extends FruitDataSource<FruitBO> {
         }
     }
 
-    private List<FruitBO> getFruitBOList(int limit, int offset) {
+    private List<FruitBo> getFruitBoList(int limit, int offset) {
 
-        List<FruitBO> fruitBOList = queryFruitListMap.get(new FruitQueryBO(limit, offset));
+        List<FruitBo> fruitBoList = queryFruitListMap.get(new FruitQueryBo(limit, offset));
 
-        if (fruitBOList == null) {
+        if (fruitBoList == null) {
             // TODO search data in preferences
         }
 
-        return fruitBOList;
+        return fruitBoList;
 
     }
 
-    public void setData(int limit, int offset, List<FruitBO> fruitBOList) {
+    public void setData(int limit, int offset, List<FruitBo> FruitBoList) {
 
-        queryFruitListMap.put(new FruitQueryBO(limit, offset), fruitBOList);
+        queryFruitListMap.put(new FruitQueryBo(limit, offset), FruitBoList);
         // TODO save data in preferences
 
+    }
+
+    public boolean exists(int limit, int offset) {
+        return getData(limit, offset) != null;
     }
 
 }

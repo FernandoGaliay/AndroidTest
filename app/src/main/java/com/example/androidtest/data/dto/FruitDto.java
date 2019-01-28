@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class FruitDTO implements Serializable {
+public class FruitDto implements Serializable {
 
     @SerializedName("item")
     private String item;

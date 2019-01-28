@@ -1,12 +1,11 @@
 package com.example.androidtest.viewmodel;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.example.androidtest.api.repository.FruitRepository;
-import com.example.androidtest.data.FruitQueryBO;
-import com.example.androidtest.data.bo.FruitBO;
+import com.example.androidtest.data.bo.FruitBo;
+import com.example.androidtest.data.bo.FruitQueryBo;
 
 import java.util.List;
 
@@ -14,11 +13,11 @@ public class FruitViewModel extends ViewModel {
 
     private FruitRepository fruitRepository;
 
-    private FruitQueryBO fruitQuery;
+    private FruitQueryBo fruitQuery;
 
-    private LiveData<List<FruitBO>> fruitsLiveData;
+    private LiveData<List<FruitBo>> fruitsLiveData;
 
-    private MutableLiveData<String> errorLiveData;
+    private LiveData<String> errorLiveData;
 
     public FruitViewModel() {
 
@@ -30,7 +29,7 @@ public class FruitViewModel extends ViewModel {
 
     //region Getters
 
-    public LiveData<List<FruitBO>> getFruits() {
+    public LiveData<List<FruitBo>> getFruits() {
 
         return fruitsLiveData;
 
@@ -50,7 +49,7 @@ public class FruitViewModel extends ViewModel {
 
         if (fruitQuery == null) {
 
-            fruitQuery = new FruitQueryBO();
+            fruitQuery = new FruitQueryBo();
 
         } else {
 

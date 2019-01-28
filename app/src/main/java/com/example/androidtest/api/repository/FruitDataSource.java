@@ -4,13 +4,13 @@ import java.util.List;
 
 public abstract class FruitDataSource<T> {
 
-    protected abstract void getAsyncData(int limit, int offset, Callback<List<T>> callback);
+    public abstract void getAsyncData(int limit, int offset, Callback<List<T>> callback);
 
-    protected abstract List<T> getData(int limit, int offset);
+    public abstract List<T> getData(int limit, int offset);
 
-    public interface Callback<T> {
+    public interface Callback<R> {
 
-        void onSuccess(T data);
+        void onSuccess(R data);
 
         void onError(String message);
 

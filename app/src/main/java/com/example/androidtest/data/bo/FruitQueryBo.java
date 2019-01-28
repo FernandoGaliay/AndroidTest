@@ -1,20 +1,20 @@
-package com.example.androidtest.data;
+package com.example.androidtest.data.bo;
 
-public class FruitQueryBO {
+public class FruitQueryBo {
 
     private int limit;
 
     private int offset;
 
-    public FruitQueryBO() {
+    public FruitQueryBo() {
         this(0);
     }
 
-    public FruitQueryBO(int offset) {
+    public FruitQueryBo(int offset) {
         this(10, offset);
     }
 
-    public FruitQueryBO(int limit, int offset) {
+    public FruitQueryBo(int limit, int offset) {
         this.limit = limit;
         this.offset = offset;
     }
