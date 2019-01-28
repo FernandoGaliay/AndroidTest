@@ -2,13 +2,19 @@ package com.example.androidtest.api.repository;
 
 import android.util.Log;
 
+import com.example.androidtest.data.FruitQueryBO;
 import com.example.androidtest.data.bo.FruitBO;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class FruitCacheDataSource extends FruitDataSource<FruitBO> {
 
-    private List<FruitBO> fruitBOList;
+    private HashMap<FruitQueryBO, List<FruitBO>> queryFruitListMap;
+
+    public FruitCacheDataSource() {
+        queryFruitListMap = new HashMap<>();
+    }
 
     @Override
     public void getAsyncData(int limit, int offset, Callback<List<FruitBO>> callback) {
@@ -20,11 +26,9 @@ public class FruitCacheDataSource extends FruitDataSource<FruitBO> {
     @Override
     public List<FruitBO> getData(int limit, int offset) {
 
-        int pageStart = limit * 10;
-
         try {
 
-            return getFruitBOList().subList(pageStart, pageStart + offset);
+            return getFruitBOList(limit, offset);
 
         } catch (Exception e) {
 
@@ -34,7 +38,9 @@ public class FruitCacheDataSource extends FruitDataSource<FruitBO> {
         }
     }
 
-    private List<FruitBO> getFruitBOList() {
+    private List<FruitBO> getFruitBOList(int limit, int offset) {
+
+        List<FruitBO> fruitBOList = queryFruitListMap.get(new FruitQueryBO(limit, offset));
 
         if (fruitBOList == null) {
             // TODO search data in preferences
@@ -44,9 +50,9 @@ public class FruitCacheDataSource extends FruitDataSource<FruitBO> {
 
     }
 
-    public void setData(List<FruitBO> fruitBOList) {
+    public void setData(int limit, int offset, List<FruitBO> fruitBOList) {
 
-        this.fruitBOList = fruitBOList;
+        queryFruitListMap.put(new FruitQueryBO(limit, offset), fruitBOList);
         // TODO save data in preferences
 
     }

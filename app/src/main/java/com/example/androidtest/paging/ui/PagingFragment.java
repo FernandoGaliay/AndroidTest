@@ -47,6 +47,7 @@ public class PagingFragment extends BaseFragment {
     }
 
     private void onFruitsReceived(List<FruitBO> fruitBOList) {
+
         Log.i(getClass().getSimpleName(), "Fruits received");
         //TODO
 

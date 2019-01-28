@@ -43,7 +43,7 @@ public class FruitRepository {
                 @Override
                 public void onSuccess(List<FruitBO> data) {
 
-                    fruitCacheDataSource.setData(data);
+                    fruitCacheDataSource.setData(limit, offset, data);
                     fruitsLiveData.setValue(data);
 
                 }
@@ -51,7 +51,7 @@ public class FruitRepository {
                 @Override
                 public void onError(String message) {
 
-                    fruitCacheDataSource.setData(null);
+                    fruitCacheDataSource.setData(limit, offset, null);
                     errorLiveData.setValue(message);
 
                 }
