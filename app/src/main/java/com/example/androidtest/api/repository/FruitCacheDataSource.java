@@ -12,8 +12,10 @@ public class FruitCacheDataSource extends FruitDataSource<FruitBo> {
 
     private HashMap<FruitQueryBo, List<FruitBo>> queryFruitListMap;
 
-    public FruitCacheDataSource() {
+    FruitCacheDataSource() {
+
         queryFruitListMap = new HashMap<>();
+
     }
 
     @Override
@@ -50,15 +52,17 @@ public class FruitCacheDataSource extends FruitDataSource<FruitBo> {
 
     }
 
-    public void setData(int limit, int offset, List<FruitBo> FruitBoList) {
+    void setData(int limit, int offset, List<FruitBo> FruitBoList) {
 
         queryFruitListMap.put(new FruitQueryBo(limit, offset), FruitBoList);
         // TODO save data in preferences
 
     }
 
-    public boolean exists(int limit, int offset) {
+    boolean exists(int limit, int offset) {
+
         return getData(limit, offset) != null;
+
     }
 
 }

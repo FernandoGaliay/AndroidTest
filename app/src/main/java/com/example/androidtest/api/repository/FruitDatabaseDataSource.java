@@ -15,7 +15,7 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     private FruitDao fruitDao;
 
-    public FruitDatabaseDataSource(Application application) {
+    FruitDatabaseDataSource(Application application) {
 
         FruitRoomDatabase db = FruitRoomDatabase.getDatabase(application);
         fruitDao = db.fruitDao();
@@ -23,7 +23,7 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
     }
 
 
-    public LiveData<List<FruitDbo>> getAsyncData(int limit, int offset) {
+    LiveData<List<FruitDbo>> getAsyncData(int limit, int offset) {
 
         return fruitDao.getAsync(limit, offset);
 
@@ -44,7 +44,7 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     }
 
-    public boolean exists(int limit, int offset) {
+    boolean exists(int limit, int offset) {
 
         return fruitDao.count(limit, offset) > 0;
 

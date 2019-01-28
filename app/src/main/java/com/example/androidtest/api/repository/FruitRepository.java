@@ -38,7 +38,7 @@ public class FruitRepository {
 
     public LiveData<List<FruitBo>> getFruits(int limit, int offset) {
 
-        if (fruitCacheDataSource.getData(limit, offset) != null) {
+        if (fruitCacheDataSource.exists(limit, offset)) {
 
             ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(fruitCacheDataSource.getData(limit, offset));
 
