@@ -8,6 +8,7 @@ Constraint Layout
 * Group
 
 // TODO
+
 - Placeholder
 - Circular Constraint
 - ConstraintSet
@@ -20,11 +21,14 @@ Constraint Layout
 Repository
 ----
 * LiveData
+* Datasources
 
+*Java Files*: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/api/repository
+
+
+Room
+----
 // TODO
-- Datasources
-
-*Java File*: https://github.com/FernandoGaliay/AndroidTest/blob/development/app/src/main/java/com/example/androidtest/api/repository/FruitRepository.java
 
 
 Job Scheduler

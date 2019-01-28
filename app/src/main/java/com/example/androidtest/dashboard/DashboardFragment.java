@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.androidtest.BaseFragment;
 import com.example.androidtest.R;
 import com.example.androidtest.contraint.ConstraintActivity;
+import com.example.androidtest.paging.ui.PagingActivity;
 
 public class DashboardFragment extends BaseFragment implements View.OnClickListener {
 
@@ -17,6 +18,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     }
 
     private TextView constraintLabel;
+
+    private TextView pagingLabel;
 
     @Override
     protected int fragmentLayout() {
@@ -32,6 +35,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     protected void setupView(View view) {
         constraintLabel = view.findViewById(R.id.dashboard_constraint_label);
         constraintLabel.setOnClickListener(this);
+        pagingLabel = view.findViewById(R.id.dashboard_paging_label);
+        pagingLabel.setOnClickListener(this);
     }
 
     //region OnClickListener Interface
@@ -41,6 +46,10 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.dashboard_constraint_label:
                 ConstraintActivity.startActivity(getActivity());
+                break;
+
+            case R.id.dashboard_paging_label:
+                PagingActivity.startActivity(getActivity());
                 break;
 
             default:
