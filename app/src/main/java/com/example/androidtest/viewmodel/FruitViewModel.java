@@ -46,11 +46,11 @@ public class FruitViewModel extends ViewModel {
 
     //region Use Cases
 
-    public void nextSearchFruits() {
+    public void nextFruitSearch() {
 
         if (fruitQuery == null) {
 
-            fruitQuery = new FruitQueryBO(10);
+            fruitQuery = new FruitQueryBO();
 
         } else {
 

@@ -6,9 +6,12 @@ public class FruitQueryBO {
 
     private int offset;
 
+    public FruitQueryBO() {
+        this(0);
+    }
+
     public FruitQueryBO(int offset) {
-        this.offset = offset;
-        this.limit = 10;
+        this(10, offset);
     }
 
     public FruitQueryBO(int limit, int offset) {

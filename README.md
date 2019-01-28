@@ -6,6 +6,9 @@ Constraint Layout
 * Guideline
 * Barrier
 * Group
+
+// TODO
+
 - Placeholder
 - Circular Constraint
 - ConstraintSet
@@ -23,6 +26,11 @@ Repository
 *Java Files*: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/api/repository
 
 
+Room
+----
+// TODO
+
+
 Job Scheduler
 ----
-// ToDo
+// TODO

@@ -3,6 +3,7 @@ package com.example.androidtest.paging.ui;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.example.androidtest.BaseFragment;
@@ -41,12 +42,12 @@ public class PagingFragment extends BaseFragment {
         viewModel.getError().observe(this, error -> {
             onErrorReceived(error);
         });
-        viewModel.searchFruits(10, 0);
+        viewModel.nextFruitSearch();
 
     }
 
     private void onFruitsReceived(List<FruitBO> fruitBOList) {
-
+        Log.i(getClass().getSimpleName(), "Fruits received");
         //TODO
 
     }
