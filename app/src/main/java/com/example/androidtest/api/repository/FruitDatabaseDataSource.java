@@ -2,7 +2,6 @@ package com.example.androidtest.api.repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
@@ -15,8 +14,6 @@ import java.util.List;
 public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     private FruitDao fruitDao;
-
-    private LiveData<List<FruitBo>> fruitsLiveData = new MutableLiveData<>();
 
     public FruitDatabaseDataSource(Application application) {
 
@@ -44,12 +41,6 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
     public List<FruitBo> getData(int limit, int offset) {
 
         return FruitMapper.dboToBo(fruitDao.get(limit, offset));
-
-    }
-
-    public LiveData<List<FruitBo>> getFruitsLiveData() {
-
-        return fruitsLiveData;
 
     }
 
