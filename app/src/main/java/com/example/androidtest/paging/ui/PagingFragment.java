@@ -36,12 +36,8 @@ public class PagingFragment extends BaseFragment {
     protected void setupView(View view) {
 
         viewModel = ViewModelProviders.of(this).get(FruitViewModel.class);
-        viewModel.getFruits().observe(this, fruitBOList -> {
-            onFruitsReceived(fruitBOList);
-        });
-        viewModel.getError().observe(this, error -> {
-            onErrorReceived(error);
-        });
+        viewModel.getFruits().observe(this, fruitBOList -> onFruitsReceived(fruitBOList));
+        viewModel.getError().observe(this, error -> onErrorReceived(error));
         viewModel.nextFruitSearch();
 
     }
