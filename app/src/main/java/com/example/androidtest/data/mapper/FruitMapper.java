@@ -1,46 +1,116 @@
 package com.example.androidtest.data.mapper;
 
-import com.example.androidtest.data.bo.FruitBO;
-import com.example.androidtest.data.dto.FruitDTO;
+import com.example.androidtest.data.bo.FruitBo;
+import com.example.androidtest.data.dbo.FruitDbo;
+import com.example.androidtest.data.dto.FruitDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FruitMapper {
 
-    public static FruitBO dtoToBO(FruitDTO fruitDTO) {
+    public static FruitBo dtoToBo(FruitDto fruitDto) {
 
-        FruitBO fruitBO = null;
+        FruitBo fruitBo = null;
 
-        if (fruitDTO != null) {
+        if (fruitDto != null) {
 
-            fruitBO = new FruitBO();
-            fruitBO.setCategory(fruitDTO.getCategory());
-            fruitBO.setFarmName(fruitDTO.getFarmName());
-            fruitBO.setItem(fruitDTO.getItem());
-            fruitBO.setPhone(fruitDTO.getPhone());
+            fruitBo = new FruitBo();
+            fruitBo.setCategory(fruitDto.getCategory());
+            fruitBo.setFarmName(fruitDto.getFarmName());
+            fruitBo.setItem(fruitDto.getItem());
+            fruitBo.setPhone(fruitDto.getPhone());
 
         }
 
-        return fruitBO;
+        return fruitBo;
     }
 
-    public static List<FruitBO> dtoToBO(List<FruitDTO> fruitDTOList) {
+    public static List<FruitBo> dtoToBo(List<FruitDto> fruitDtoList) {
 
-        List<FruitBO> fruitBOList = null;
+        List<FruitBo> fruitBoList = null;
 
-        if (fruitDTOList != null) {
+        if (fruitDtoList != null) {
 
-            fruitBOList = new ArrayList<>();
+            fruitBoList = new ArrayList<>();
 
-            for (FruitDTO fruitDTO : fruitDTOList) {
+            for (FruitDto fruitDTO : fruitDtoList) {
 
-                fruitBOList.add(FruitMapper.dtoToBO(fruitDTO));
+                fruitBoList.add(FruitMapper.dtoToBo(fruitDTO));
 
             }
 
         }
 
-        return fruitBOList;
+        return fruitBoList;
+    }
+
+    public static FruitBo dboToBo(FruitDbo fruitDbo) {
+
+        FruitBo fruitBo = null;
+
+        if (fruitDbo != null) {
+
+            fruitBo = new FruitBo();
+            fruitBo.setCategory(fruitDbo.getCategory());
+            fruitBo.setFarmName(fruitDbo.getFarmName());
+            fruitBo.setItem(fruitDbo.getItem());
+            fruitBo.setPhone(fruitDbo.getPhone());
+
+        }
+
+        return fruitBo;
+    }
+
+    public static List<FruitBo> dboToBo(List<FruitDbo> fruitDboList) {
+
+        List<FruitBo> fruitBoList = null;
+
+        if (fruitDboList != null) {
+
+            fruitBoList = new ArrayList<>();
+
+            for (FruitDbo fruitDbo : fruitDboList) {
+
+                fruitBoList.add(FruitMapper.dboToBo(fruitDbo));
+
+            }
+
+        }
+
+        return fruitBoList;
+    }
+
+
+    public static FruitDbo boToDbo(FruitBo fruitBo) {
+
+        FruitDbo fruitDbo = null;
+
+        if (fruitBo != null) {
+
+            fruitDbo = new FruitDbo(fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone());
+
+        }
+        return fruitDbo;
+    }
+
+
+    public static List<FruitDbo> boToDbo(List<FruitBo> fruitBoList) {
+
+        List<FruitDbo> fruitDboList = null;
+
+        if (fruitBoList != null) {
+
+            fruitDboList = new ArrayList<>();
+
+            for (FruitBo fruitBo : fruitBoList) {
+
+                fruitDboList.add(FruitMapper.boToDbo(fruitBo));
+
+            }
+
+        }
+
+        return fruitDboList;
     }
 }

@@ -1,6 +1,6 @@
 package com.example.androidtest.data.bo;
 
-public class FruitBO {
+public class FruitBo {
 
     private String item;
 

@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.androidtest.BaseFragment;
 import com.example.androidtest.R;
-import com.example.androidtest.data.bo.FruitBO;
+import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.viewmodel.FruitViewModel;
 
 import java.util.List;
@@ -46,7 +46,8 @@ public class PagingFragment extends BaseFragment {
 
     }
 
-    private void onFruitsReceived(List<FruitBO> fruitBOList) {
+    private void onFruitsReceived(List<FruitBo> fruitBoList) {
+
         Log.i(getClass().getSimpleName(), "Fruits received");
         //TODO
 

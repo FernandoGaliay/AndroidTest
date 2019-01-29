@@ -1,7 +1,7 @@
 package com.example.androidtest.api.service;
 
 import com.example.androidtest.api.ApiClient;
-import com.example.androidtest.data.dto.FruitDTO;
+import com.example.androidtest.data.dto.FruitDto;
 
 import java.util.List;
 
@@ -18,6 +18,6 @@ public interface FruitService {
     }
 
     @GET("resource/hma6-9xbg.json")
-    Call<List<FruitDTO>> getFruits(@Query("category") String category, @Query("$limit") int limit, @Query("$offset") int offset);
+    Call<List<FruitDto>> getFruits(@Query("category") String category, @Query("$limit") int limit, @Query("$offset") int offset);
 
 }
