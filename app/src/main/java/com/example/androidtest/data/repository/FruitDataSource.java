@@ -1,4 +1,4 @@
-package com.example.androidtest.api.repository;
+package com.example.androidtest.data.repository;
 
 import java.util.List;
 

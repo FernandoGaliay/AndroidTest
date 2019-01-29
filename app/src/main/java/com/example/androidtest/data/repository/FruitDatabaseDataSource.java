@@ -1,8 +1,8 @@
-package com.example.androidtest.api.repository;
+package com.example.androidtest.data.repository;
 
-import android.app.Application;
 import android.arch.lifecycle.LiveData;
 
+import com.example.androidtest.TestApplication;
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.data.mapper.FruitMapper;
@@ -15,9 +15,9 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     private FruitDao fruitDao;
 
-    FruitDatabaseDataSource(Application application) {
+    FruitDatabaseDataSource() {
 
-        FruitRoomDatabase db = FruitRoomDatabase.getDatabase(application);
+        FruitRoomDatabase db = FruitRoomDatabase.getDatabase(TestApplication.getINSTANCE());
         fruitDao = db.fruitDao();
 
     }
