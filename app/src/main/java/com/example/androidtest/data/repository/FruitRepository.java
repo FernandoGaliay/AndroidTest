@@ -3,6 +3,7 @@ package com.example.androidtest.data.repository;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
@@ -44,41 +45,40 @@ public class FruitRepository {
 
         } else {
 
-            ((MediatorLiveData) fruitsLiveData).addSource(fruitDatabaseDataSource.getAsyncData(limit, offset),
+            ((MediatorLiveData) fruitsLiveData).addSource(fruitDatabaseDataSource.getAsyncData(limit, offset), (Observer<List<FruitDbo>>) fruitDboList -> {
 
-                    fruitsDboList -> {
+                if (fruitDboList != null
+                        && !fruitDboList.isEmpty()) {
 
-                        if (fruitsDboList instanceof List
-                                && !((List) fruitsDboList).isEmpty()) {
+                    fruitCacheDataSource.setData(limit, offset, FruitMapper.dboToBo(fruitDboList));
+                    ((MediatorLiveData<List<FruitBo>>) fruitsLiveData).postValue(FruitMapper.dboToBo(fruitDboList));
 
-                            fruitCacheDataSource.setData(limit, offset, FruitMapper.dboToBo((List<FruitDbo>) fruitsDboList));
-                            ((MediatorLiveData<List<FruitBo>>) fruitsLiveData).postValue(FruitMapper.dboToBo((List<FruitDbo>) fruitsDboList));
+                } else {
 
-                        } else {
+                    fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBo>>() {
 
-                            fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBo>>() {
+                        @Override
+                        public void onSuccess(List<FruitBo> data) {
 
-                                @Override
-                                public void onSuccess(List<FruitBo> data) {
-
-                                    fruitCacheDataSource.setData(limit, offset, data);
-                                    fruitDatabaseDataSource.setData(data);
-                                    ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(data);
-
-                                }
-
-                                @Override
-                                public void onError(String message) {
-
-                                    fruitCacheDataSource.setData(limit, offset, null);
-                                    errorLiveData.setValue(message);
-
-                                }
-                            });
+                            fruitCacheDataSource.setData(limit, offset, data);
+                            fruitDatabaseDataSource.setData(data);
+                            ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(data);
 
                         }
 
+                        @Override
+                        public void onError(String message) {
+
+                            fruitCacheDataSource.setData(limit, offset, null);
+                            errorLiveData.setValue(message);
+
+                        }
                     });
+
+                }
+
+
+            });
 
         }
 
