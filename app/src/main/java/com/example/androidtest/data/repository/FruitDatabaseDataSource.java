@@ -46,7 +46,23 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     boolean exists(int limit, int offset) {
 
-        return fruitDao.count(limit, offset) > 0;
+        Integer count = fruitDao.count(limit, offset).getValue();
+        return count != null && count > 0;
+
+    }
+
+    void setData(List<FruitBo> fruitBoList) {
+
+        new Thread() {
+
+            @Override
+            public void run() {
+
+                fruitDao.insert(FruitMapper.boToDbo(fruitBoList));
+
+            }
+
+        }.start();
 
     }
 }

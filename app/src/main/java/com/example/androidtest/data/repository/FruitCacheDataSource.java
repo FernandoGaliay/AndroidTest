@@ -10,9 +10,31 @@ import java.util.List;
 
 public class FruitCacheDataSource extends FruitDataSource<FruitBo> {
 
+    static volatile FruitCacheDataSource INSTANCE;
+
     private HashMap<FruitQueryBo, List<FruitBo>> queryFruitListMap;
 
-    FruitCacheDataSource() {
+    public static FruitCacheDataSource getInstace() {
+
+        if (INSTANCE == null) {
+
+            synchronized (FruitCacheDataSource.class) {
+
+                if (INSTANCE == null) {
+
+                    INSTANCE = new FruitCacheDataSource();
+
+                }
+
+            }
+
+        }
+
+        return INSTANCE;
+
+    }
+
+    private FruitCacheDataSource() {
 
         queryFruitListMap = new HashMap<>();
 

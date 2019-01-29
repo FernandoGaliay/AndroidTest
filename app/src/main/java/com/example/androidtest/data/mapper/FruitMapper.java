@@ -80,4 +80,37 @@ public class FruitMapper {
 
         return fruitBoList;
     }
+
+
+    public static FruitDbo boToDbo(FruitBo fruitBo) {
+
+        FruitDbo fruitDbo = null;
+
+        if (fruitBo != null) {
+
+            fruitDbo = new FruitDbo(fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone());
+
+        }
+        return fruitDbo;
+    }
+
+
+    public static List<FruitDbo> boToDbo(List<FruitBo> fruitBoList) {
+
+        List<FruitDbo> fruitDboList = null;
+
+        if (fruitBoList != null) {
+
+            fruitDboList = new ArrayList<>();
+
+            for (FruitBo fruitBo : fruitBoList) {
+
+                fruitDboList.add(FruitMapper.boToDbo(fruitBo));
+
+            }
+
+        }
+
+        return fruitDboList;
+    }
 }

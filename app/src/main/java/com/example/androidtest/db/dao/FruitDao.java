@@ -15,10 +15,10 @@ import java.util.List;
 public interface FruitDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(FruitDbo... fruits);
+    void insert(List<FruitDbo> fruitDboList);
 
     @Delete
-    void delete(FruitDbo... fruits);
+    void delete(List<FruitDbo> fruitDboList);
 
     @Query("DELETE FROM fruit_table")
     void deleteAll();
@@ -33,6 +33,6 @@ public interface FruitDao {
     LiveData<List<FruitDbo>> getAsync(int limit, int offset);
 
     @Query("SELECT COUNT(item) FROM fruit_table LIMIT :limit OFFSET :offset")
-    Integer count(int limit, int offset);
+    LiveData<Integer> count(int limit, int offset);
 
 }

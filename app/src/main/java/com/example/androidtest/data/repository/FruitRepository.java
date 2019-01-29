@@ -23,7 +23,7 @@ public class FruitRepository {
     public FruitRepository() {
 
         fruitApiDataSource = new FruitApiDataSource();
-        fruitCacheDataSource = new FruitCacheDataSource();
+        fruitCacheDataSource = FruitCacheDataSource.getInstace();
         fruitDatabaseDataSource = new FruitDatabaseDataSource();
 
     }
@@ -42,40 +42,43 @@ public class FruitRepository {
 
             ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(fruitCacheDataSource.getData(limit, offset));
 
-        } else if (fruitDatabaseDataSource.exists(limit, offset)) {
+        } else {
 
             ((MediatorLiveData) fruitsLiveData).addSource(fruitDatabaseDataSource.getAsyncData(limit, offset),
 
                     fruitsDboList -> {
 
-                        if (fruitsDboList instanceof List) {
+                        if (fruitsDboList instanceof List
+                                && !((List) fruitsDboList).isEmpty()) {
 
+                            fruitCacheDataSource.setData(limit, offset, FruitMapper.dboToBo((List<FruitDbo>) fruitsDboList));
                             ((MediatorLiveData<List<FruitBo>>) fruitsLiveData).postValue(FruitMapper.dboToBo((List<FruitDbo>) fruitsDboList));
+
+                        } else {
+
+                            fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBo>>() {
+
+                                @Override
+                                public void onSuccess(List<FruitBo> data) {
+
+                                    fruitCacheDataSource.setData(limit, offset, data);
+                                    fruitDatabaseDataSource.setData(data);
+                                    ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(data);
+
+                                }
+
+                                @Override
+                                public void onError(String message) {
+
+                                    fruitCacheDataSource.setData(limit, offset, null);
+                                    errorLiveData.setValue(message);
+
+                                }
+                            });
 
                         }
 
                     });
-
-        } else {
-
-            fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBo>>() {
-
-                @Override
-                public void onSuccess(List<FruitBo> data) {
-
-                    fruitCacheDataSource.setData(limit, offset, data);
-                    ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(data);
-
-                }
-
-                @Override
-                public void onError(String message) {
-
-                    fruitCacheDataSource.setData(limit, offset, null);
-                    errorLiveData.setValue(message);
-
-                }
-            });
 
         }
 
