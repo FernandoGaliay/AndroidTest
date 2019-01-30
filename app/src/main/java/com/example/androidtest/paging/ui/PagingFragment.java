@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.androidtest.BaseFragment;
 import com.example.androidtest.R;
@@ -25,6 +26,8 @@ public class PagingFragment extends BaseFragment {
 
     private RecyclerView fruitRecycler;
 
+    private ProgressBar fruitLoader;
+
     @Override
     protected int fragmentLayout() {
         return R.layout.fragment_paging;
@@ -38,6 +41,7 @@ public class PagingFragment extends BaseFragment {
     @Override
     protected void setupView(View view) {
 
+        fruitLoader = view.findViewById(R.id.paging_loader);
         fruitRecycler = view.findViewById(R.id.paging_list_fruit);
         fruitRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         fruitRecycler.setHasFixedSize(true);
