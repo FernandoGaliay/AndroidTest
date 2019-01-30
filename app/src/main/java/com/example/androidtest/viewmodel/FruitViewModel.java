@@ -25,7 +25,8 @@ public class FruitViewModel extends ViewModel {
 
         fruitRepository = new FruitRepository();
         errorLiveData = fruitRepository.getErrorLiveData();
-        fruitsLiveData = Transformations.switchMap(fruitQuery, fruitQuery -> fruitRepository.getFruits(fruitQuery.getLimit(), fruitQuery.getOffset()));
+        fruitsLiveData = Transformations.switchMap(fruitQuery,
+                fruitQuery -> fruitRepository.getFruits(fruitQuery.getLimit(), fruitQuery.getOffset()));
 
     }
 
@@ -51,7 +52,6 @@ public class FruitViewModel extends ViewModel {
 
         if (fruitQuery.getValue() == null) {
 
-            fruitQuery = new MutableLiveData<>();
             fruitQuery.setValue(new FruitQueryBo());
 
         } else {

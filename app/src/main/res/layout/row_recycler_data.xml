@@ -2,12 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/normal">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,12 +26,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/row_label_username"
+                android:id="@+id/row_label_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/normal"
+                android:layout_marginTop="@dimen/normal"
                 android:text="TextView"
+                style="@style/Text_Normal.Black"
                 app:layout_constraintStart_toEndOf="@+id/row_img_avatar"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,18 +40,19 @@
                 android:id="@+id/row_label_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/normal"
+                android:layout_marginTop="@dimen/normal"
+                style="@style/Text_Normal.Grey"
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/row_img_avatar"
-                app:layout_constraintTop_toBottomOf="@+id/row_label_username" />
+                app:layout_constraintTop_toBottomOf="@+id/row_label_name" />
 
             <ImageView
                 android:id="@+id/row_img_status"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="@dimen/normal"
+                android:layout_marginBottom="@dimen/normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@android:color/holo_green_dark" />
@@ -59,8 +61,8 @@
                 android:id="@+id/row_img_favorite"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="@dimen/normal"
+                android:layout_marginBottom="@dimen/normal"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_action_unfavorite"
                 android:tint="@color/colorAccent"

@@ -2,8 +2,9 @@ package com.example.androidtest.paging.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import com.example.androidtest.BaseFragment;
@@ -22,6 +23,8 @@ public class PagingFragment extends BaseFragment {
 
     private FruitViewModel viewModel;
 
+    private RecyclerView fruitRecycler;
+
     @Override
     protected int fragmentLayout() {
         return R.layout.fragment_paging;
@@ -35,17 +38,24 @@ public class PagingFragment extends BaseFragment {
     @Override
     protected void setupView(View view) {
 
+        fruitRecycler = view.findViewById(R.id.paging_list_fruit);
+        fruitRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        fruitRecycler.setHasFixedSize(true);
+        fruitRecycler.setAdapter(new PagingAdapter());
         viewModel = ViewModelProviders.of(this).get(FruitViewModel.class);
-        viewModel.getFruits().observe(this, fruitBOList -> onFruitsReceived(fruitBOList));
-        viewModel.getError().observe(this, error -> onErrorReceived(error));
+        viewModel.getFruits().observe(this, this::onFruitsReceived);
+        viewModel.getError().observe(this, this::onErrorReceived);
         viewModel.nextFruitSearch();
 
     }
 
     private void onFruitsReceived(List<FruitBo> fruitBoList) {
 
-        Log.i(getClass().getSimpleName(), "Fruits received");
-        //TODO
+        if (fruitRecycler.getAdapter() instanceof PagingAdapter) {
+
+            ((PagingAdapter) fruitRecycler.getAdapter()).addData(fruitBoList);
+
+        }
 
     }
 
