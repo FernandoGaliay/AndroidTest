@@ -45,6 +45,16 @@ https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java
 https://github.com/FernandoGaliay/AndroidTest/blob/development/app/src/main/java/com/example/androidtest/data/dbo/FruitDbo.java
 
 
+ViewModel
+----
+* LiveData
+* Transformations.switchmap
+* Use case
+
+*Java Files*:
+https://github.com/FernandoGaliay/AndroidTest/blob/development/app/src/main/java/com/example/androidtest/viewmodel/FruitViewModel.java
+
+
 Job Scheduler
 ----
 // TODO
