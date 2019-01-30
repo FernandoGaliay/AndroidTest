@@ -57,8 +57,7 @@ public class PagingAdapter extends RecyclerView.Adapter<PagingAdapter.ViewHolder
         int indexStart = this.fruitBoList.size();
         int indexEnd = indexStart + fruitBoList.size();
         this.fruitBoList.addAll(fruitBoList);
-        notifyDataSetChanged();
-//        notifyItemRangeInserted(indexStart, indexEnd);
+        notifyItemRangeInserted(indexStart, indexEnd);
 
     }
 

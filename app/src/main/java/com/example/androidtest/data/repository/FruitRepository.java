@@ -61,8 +61,7 @@ public class FruitRepository {
                         public void onSuccess(List<FruitBo> data) {
 
                             fruitCacheDataSource.setData(limit, offset, data);
-                            fruitDatabaseDataSource.setData(data);
-                            ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(data);
+                            fruitDatabaseDataSource.setData(data); // Modify room database will notify the observer of the MediatorLiveData
 
                         }
 

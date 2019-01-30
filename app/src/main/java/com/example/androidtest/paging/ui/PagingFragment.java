@@ -44,7 +44,6 @@ public class PagingFragment extends BaseFragment {
         fruitLoader = view.findViewById(R.id.paging_loader);
         fruitRecycler = view.findViewById(R.id.paging_list_fruit);
         fruitRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        fruitRecycler.setHasFixedSize(true);
         fruitRecycler.setAdapter(new PagingAdapter());
         viewModel = ViewModelProviders.of(this).get(FruitViewModel.class);
         viewModel.getFruits().observe(this, this::onFruitsReceived);
