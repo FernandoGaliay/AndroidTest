@@ -9,10 +9,9 @@ import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.bo.FruitQueryBo;
 import com.example.androidtest.data.repository.FruitRepository;
 
-import java.util.Calendar;
 import java.util.List;
 
-public class FruitViewModel extends ViewModel {
+public class PagingFruitViewModel extends ViewModel {
 
     private FruitRepository fruitRepository;
 
@@ -22,7 +21,7 @@ public class FruitViewModel extends ViewModel {
 
     private LiveData<String> errorLiveData;
 
-    public FruitViewModel() {
+    public PagingFruitViewModel() {
 
         fruitRepository = new FruitRepository();
         errorLiveData = fruitRepository.getErrorLiveData();
@@ -60,17 +59,6 @@ public class FruitViewModel extends ViewModel {
             fruitQuery.setValue(fruitQuery.getValue().nextQuery());
 
         }
-
-    }
-
-    public void add() {
-
-        FruitBo randomFruit = new FruitBo();
-        randomFruit.setCategory("Citrico");
-        randomFruit.setPhone("666666666");
-        randomFruit.setItem("Naranja" + Calendar.getInstance().getTimeInMillis());
-        randomFruit.setFarmName("Frutería Emil");
-        fruitRepository.add(randomFruit);
 
     }
 

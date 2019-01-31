@@ -1,5 +1,6 @@
 package com.example.androidtest.dashboard;
 
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import com.example.androidtest.BaseFragment;
 import com.example.androidtest.R;
 import com.example.androidtest.contraint.ConstraintActivity;
 import com.example.androidtest.paging.ui.PagingActivity;
+import com.example.androidtest.recycler.ui.RecyclerActivity;
 
 public class DashboardFragment extends BaseFragment implements View.OnClickListener {
 
@@ -49,7 +51,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                 break;
 
             case R.id.dashboard_paging_label:
-                PagingActivity.startActivity(getActivity());
+                RecyclerActivity.startActivity(getActivity());
                 break;
 
             default:

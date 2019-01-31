@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".contraint.ConstraintActivity" />
         <activity android:name=".paging.ui.PagingActivity" />
+        <activity android:name=".recycler.ui.RecyclerActivity" />
     </application>
 
 </manifest>

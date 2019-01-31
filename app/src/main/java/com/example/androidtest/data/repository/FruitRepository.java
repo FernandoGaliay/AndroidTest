@@ -9,6 +9,7 @@ import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.data.mapper.FruitMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FruitRepository {
@@ -39,13 +40,9 @@ public class FruitRepository {
 
     public LiveData<List<FruitBo>> getFruits(int limit, int offset) {
 
-        if (fruitCacheDataSource.exists(limit, offset)) {
+        if (!fruitsLiveData.hasObservers()) {
 
-            ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(fruitCacheDataSource.getData(limit, offset));
-
-        } else {
-
-            ((MediatorLiveData) fruitsLiveData).addSource(fruitDatabaseDataSource.getAsyncData(limit, offset), (Observer<List<FruitDbo>>) fruitDboList -> {
+            ((MediatorLiveData) fruitsLiveData).addSource(fruitDatabaseDataSource.getAll(), (Observer<List<FruitDbo>>) fruitDboList -> {
 
                 if (fruitDboList != null
                         && !fruitDboList.isEmpty()) {
@@ -53,35 +50,49 @@ public class FruitRepository {
                     fruitCacheDataSource.setData(limit, offset, FruitMapper.dboToBo(fruitDboList));
                     ((MediatorLiveData<List<FruitBo>>) fruitsLiveData).postValue(FruitMapper.dboToBo(fruitDboList));
 
-                } else {
+                }
 
-                    fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBo>>() {
+            });
+        }
 
-                        @Override
-                        public void onSuccess(List<FruitBo> data) {
+        if (fruitCacheDataSource.exists(limit, offset)) {
 
-                            fruitCacheDataSource.setData(limit, offset, data);
-                            fruitDatabaseDataSource.setData(data); // Modify room database will notify the observer of the MediatorLiveData
+            ((MutableLiveData<List<FruitBo>>) fruitsLiveData).setValue(fruitCacheDataSource.getData(limit, offset));
 
-                        }
+        } else {
 
-                        @Override
-                        public void onError(String message) {
 
-                            fruitCacheDataSource.setData(limit, offset, null);
-                            errorLiveData.setValue(message);
+            fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBo>>() {
 
-                        }
-                    });
+                @Override
+                public void onSuccess(List<FruitBo> data) {
+
+                    fruitCacheDataSource.setData(limit, offset, data);
+                    fruitDatabaseDataSource.setData(data); // Modify room database will notify the observer of the MediatorLiveData
 
                 }
 
+                @Override
+                public void onError(String message) {
+
+                    fruitCacheDataSource.setData(limit, offset, null);
+                    errorLiveData.setValue(message);
+
+                }
 
             });
 
         }
 
         return fruitsLiveData;
+
+    }
+
+    public void add(FruitBo randomFruit) {
+
+        List<FruitBo> newRandomFruitList = new ArrayList<>();
+        newRandomFruitList.add(randomFruit);
+        fruitDatabaseDataSource.setData(newRandomFruitList);
 
     }
 
@@ -100,6 +111,7 @@ public class FruitRepository {
         return errorLiveData;
 
     }
+
 
     //endregion
 }

@@ -22,6 +22,12 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     }
 
+    LiveData<List<FruitDbo>> getAll(){
+
+        return fruitDao.getAll();
+
+    }
+
 
     LiveData<List<FruitDbo>> getAsyncData(int limit, int offset) {
 
