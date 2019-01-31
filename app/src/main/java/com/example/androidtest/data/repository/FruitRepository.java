@@ -61,7 +61,6 @@ public class FruitRepository {
 
         } else {
 
-
             fruitApiDataSource.getAsyncData(limit, offset, new FruitDataSource.Callback<List<FruitBo>>() {
 
                 @Override

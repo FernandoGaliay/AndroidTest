@@ -54,11 +54,7 @@ public class RecyclerFragment extends BaseFragment {
         viewModel.getError().observe(this, this::onErrorReceived);
         viewModel.nextFruitSearch();
         FloatingActionButton addButton = view.findViewById(R.id.paging_button_add);
-        addButton.setOnClickListener(clickedView -> {
-
-            viewModel.add();
-
-        });
+        addButton.setOnClickListener(clickedView -> viewModel.add());
 
     }
 
