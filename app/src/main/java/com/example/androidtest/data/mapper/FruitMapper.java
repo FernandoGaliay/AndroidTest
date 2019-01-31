@@ -16,6 +16,7 @@ public class FruitMapper {
         if (fruitDto != null) {
 
             fruitBo = new FruitBo();
+            fruitBo.setId(fruitDto.getId());
             fruitBo.setCategory(fruitDto.getCategory());
             fruitBo.setFarmName(fruitDto.getFarmName());
             fruitBo.setItem(fruitDto.getItem());
@@ -52,6 +53,7 @@ public class FruitMapper {
         if (fruitDbo != null) {
 
             fruitBo = new FruitBo();
+            fruitBo.setId(fruitDbo.getId());
             fruitBo.setCategory(fruitDbo.getCategory());
             fruitBo.setFarmName(fruitDbo.getFarmName());
             fruitBo.setItem(fruitDbo.getItem());
@@ -88,7 +90,7 @@ public class FruitMapper {
 
         if (fruitBo != null) {
 
-            fruitDbo = new FruitDbo(fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone());
+            fruitDbo = new FruitDbo(fruitBo.getId(), fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone());
 
         }
         return fruitDbo;

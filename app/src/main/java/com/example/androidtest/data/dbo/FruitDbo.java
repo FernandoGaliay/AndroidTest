@@ -10,6 +10,9 @@ public class FruitDbo {
 
     @PrimaryKey
     @NonNull
+    @ColumnInfo(name = "id")
+    private String id;
+
     @ColumnInfo(name = "item")
     private String item;
 
@@ -22,7 +25,8 @@ public class FruitDbo {
     @ColumnInfo(name = "phone")
     private String phone;
 
-    public FruitDbo(@NonNull String item, String category, String farmName, String phone) {
+    public FruitDbo(@NonNull String id, String item, String category, String farmName, String phone) {
+        this.id = id;
         this.item = item;
         this.category = category;
         this.farmName = farmName;
@@ -30,6 +34,10 @@ public class FruitDbo {
     }
 
     @NonNull
+    public String getId() {
+        return id;
+    }
+
     public String getItem() {
         return item;
     }

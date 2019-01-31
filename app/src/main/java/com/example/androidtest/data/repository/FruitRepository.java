@@ -87,6 +87,12 @@ public class FruitRepository {
 
     }
 
+    public void getFruitPaging(int limit, int offset, FruitApiDataSource.Callback<List<FruitBo>> callback) {
+
+        fruitApiDataSource.getAsyncData(limit, offset, callback);
+
+    }
+
     public void add(FruitBo randomFruit) {
 
         List<FruitBo> newRandomFruitList = new ArrayList<>();

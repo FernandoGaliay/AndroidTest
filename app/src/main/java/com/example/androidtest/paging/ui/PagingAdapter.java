@@ -1,6 +1,8 @@
 package com.example.androidtest.paging.ui;
 
+import android.arch.paging.PagedListAdapter;
 import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,17 +12,10 @@ import android.widget.TextView;
 import com.example.androidtest.R;
 import com.example.androidtest.data.bo.FruitBo;
 
-import java.util.ArrayList;
-import java.util.List;
+public class PagingAdapter extends PagedListAdapter<FruitBo, PagingAdapter.ViewHolder> {
 
-public class PagingAdapter extends RecyclerView.Adapter<PagingAdapter.ViewHolder> {
-
-    private List<FruitBo> fruitBoList;
-
-    public PagingAdapter() {
-
-        this.fruitBoList = new ArrayList<>();
-
+    public PagingAdapter(@NonNull DiffUtil.ItemCallback<FruitBo> diffCallback) {
+        super(diffCallback);
     }
 
     @NonNull
@@ -35,31 +30,17 @@ public class PagingAdapter extends RecyclerView.Adapter<PagingAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-        FruitBo fruit = fruitBoList.get(position);
+        FruitBo fruit = getItem(position);
+
+        if (fruit == null) {
+            return;
+        }
+
         viewHolder.nameLabel.setText(fruit.getItem());
         viewHolder.dateLabel.setText(fruit.getCategory());
 
     }
 
-    @Override
-    public int getItemCount() {
-
-        return fruitBoList.size();
-
-    }
-
-    public void addData(List<FruitBo> fruitBoList) {
-
-        if (fruitBoList == null || fruitBoList.isEmpty()) {
-            return;
-        }
-
-        int indexStart = this.fruitBoList.size();
-        int indexEnd = indexStart + fruitBoList.size();
-        this.fruitBoList.addAll(fruitBoList);
-        notifyItemRangeInserted(indexStart, indexEnd);
-
-    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 

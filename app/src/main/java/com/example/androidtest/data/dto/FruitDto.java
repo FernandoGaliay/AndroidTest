@@ -21,6 +21,10 @@ public class FruitDto implements Serializable {
     @SerializedName("phone1")
     private String phone;
 
+    public String getId() {
+        return id;
+    }
+
     public String getItem() {
         return item;
     }

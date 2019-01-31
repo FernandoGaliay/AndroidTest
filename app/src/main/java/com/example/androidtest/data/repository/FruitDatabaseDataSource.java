@@ -15,14 +15,14 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     private FruitDao fruitDao;
 
-    FruitDatabaseDataSource() {
+    public FruitDatabaseDataSource() {
 
         FruitRoomDatabase db = FruitRoomDatabase.getDatabase(TestApplication.getINSTANCE());
         fruitDao = db.fruitDao();
 
     }
 
-    LiveData<List<FruitDbo>> getAll(){
+    LiveData<List<FruitDbo>> getAll() {
 
         return fruitDao.getAll();
 

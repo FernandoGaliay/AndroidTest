@@ -1,66 +1,25 @@
 package com.example.androidtest.viewmodel;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
+import android.arch.paging.LivePagedListBuilder;
+import android.arch.paging.PagedList;
 
 import com.example.androidtest.data.bo.FruitBo;
-import com.example.androidtest.data.bo.FruitQueryBo;
-import com.example.androidtest.data.repository.FruitRepository;
-
-import java.util.List;
+import com.example.androidtest.paging.ui.FruitDataSourceFactory;
 
 public class PagingFruitViewModel extends ViewModel {
 
-    private FruitRepository fruitRepository;
-
-    private MutableLiveData<FruitQueryBo> fruitQuery = new MutableLiveData<>();
-
-    private LiveData<List<FruitBo>> fruitsLiveData;
-
-    private LiveData<String> errorLiveData;
+    private LiveData<PagedList<FruitBo>> fruitPagedListLiveData;
 
     public PagingFruitViewModel() {
 
-        fruitRepository = new FruitRepository();
-        errorLiveData = fruitRepository.getErrorLiveData();
-        fruitsLiveData = Transformations.switchMap(fruitQuery,
-                fruitQuery -> fruitRepository.getFruits(fruitQuery.getLimit(), fruitQuery.getOffset()));
+        PagedList.Config config = new PagedList.Config.Builder().setPageSize(10).build();
+        fruitPagedListLiveData = new LivePagedListBuilder<>(new FruitDataSourceFactory(), config).build();
 
     }
 
-    //region Getters
-
-    public LiveData<List<FruitBo>> getFruits() {
-
-        return fruitsLiveData;
-
+    public LiveData<PagedList<FruitBo>> getFruitPagedListLiveData() {
+        return fruitPagedListLiveData;
     }
-
-    public LiveData<String> getError() {
-
-        return errorLiveData;
-
-    }
-
-    //endregion
-
-    //region Use Cases
-
-    public void nextFruitSearch() {
-
-        if (fruitQuery.getValue() == null) {
-
-            fruitQuery.setValue(new FruitQueryBo());
-
-        } else {
-
-            fruitQuery.setValue(fruitQuery.getValue().nextQuery());
-
-        }
-
-    }
-
-    //endregion
 }

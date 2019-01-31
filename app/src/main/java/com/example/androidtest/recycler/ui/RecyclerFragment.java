@@ -20,8 +20,7 @@ public class RecyclerFragment extends BaseFragment {
 
     public static Fragment newInstance() {
 
-        RecyclerFragment fragment = new RecyclerFragment();
-        return fragment;
+        return new RecyclerFragment();
 
     }
 

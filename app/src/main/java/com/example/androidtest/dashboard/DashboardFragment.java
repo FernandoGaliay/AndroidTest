@@ -1,6 +1,5 @@
 package com.example.androidtest.dashboard;
 
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +20,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 
     private TextView constraintLabel;
 
+    private TextView recyclerLabel;
+
     private TextView pagingLabel;
 
     @Override
@@ -37,7 +38,9 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     protected void setupView(View view) {
         constraintLabel = view.findViewById(R.id.dashboard_constraint_label);
         constraintLabel.setOnClickListener(this);
-        pagingLabel = view.findViewById(R.id.dashboard_paging_label);
+        recyclerLabel = view.findViewById(R.id.dashboard_paging_label);
+        recyclerLabel.setOnClickListener(this);
+        pagingLabel = view.findViewById(R.id.dashboard_thirdoption_label);
         pagingLabel.setOnClickListener(this);
     }
 
@@ -52,6 +55,10 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 
             case R.id.dashboard_paging_label:
                 RecyclerActivity.startActivity(getActivity());
+                break;
+
+            case R.id.dashboard_thirdoption_label:
+                PagingActivity.startActivity(getActivity());
                 break;
 
             default:

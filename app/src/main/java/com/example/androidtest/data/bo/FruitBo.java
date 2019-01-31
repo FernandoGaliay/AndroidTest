@@ -2,6 +2,8 @@ package com.example.androidtest.data.bo;
 
 public class FruitBo {
 
+    private String id;
+
     private String item;
 
     private String category;
@@ -40,5 +42,13 @@ public class FruitBo {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
