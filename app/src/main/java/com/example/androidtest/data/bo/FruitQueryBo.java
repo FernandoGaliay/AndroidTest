@@ -22,7 +22,7 @@ public class FruitQueryBo {
     }
 
     public FruitQueryBo nextQuery(){
-        offset = (offset + 1) * limit;
+        offset = offset + limit;
         return this;
     }
 

@@ -18,8 +18,10 @@ import java.util.List;
 public class PagingFragment extends BaseFragment {
 
     public static Fragment newInstance() {
+
         PagingFragment fragment = new PagingFragment();
         return fragment;
+
     }
 
     private FruitViewModel viewModel;
