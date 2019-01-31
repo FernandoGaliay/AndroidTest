@@ -38,9 +38,9 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     protected void setupView(View view) {
         constraintLabel = view.findViewById(R.id.dashboard_constraint_label);
         constraintLabel.setOnClickListener(this);
-        recyclerLabel = view.findViewById(R.id.dashboard_paging_label);
+        recyclerLabel = view.findViewById(R.id.dashboard_recycler_label);
         recyclerLabel.setOnClickListener(this);
-        pagingLabel = view.findViewById(R.id.dashboard_thirdoption_label);
+        pagingLabel = view.findViewById(R.id.dashboard_paging_label);
         pagingLabel.setOnClickListener(this);
     }
 
@@ -53,11 +53,11 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                 ConstraintActivity.startActivity(getActivity());
                 break;
 
-            case R.id.dashboard_paging_label:
+            case R.id.dashboard_recycler_label:
                 RecyclerActivity.startActivity(getActivity());
                 break;
 
-            case R.id.dashboard_thirdoption_label:
+            case R.id.dashboard_paging_label:
                 PagingActivity.startActivity(getActivity());
                 break;
 
