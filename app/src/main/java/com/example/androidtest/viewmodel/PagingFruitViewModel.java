@@ -6,7 +6,7 @@ import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
 
 import com.example.androidtest.data.bo.FruitBo;
-import com.example.androidtest.paging.ui.FruitDataSourceFactory;
+import com.example.androidtest.paging.datasource.FruitDataSourceFactory;
 
 public class PagingFruitViewModel extends ViewModel {
 

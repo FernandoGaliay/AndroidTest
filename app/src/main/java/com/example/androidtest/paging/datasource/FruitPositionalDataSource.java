@@ -1,4 +1,4 @@
-package com.example.androidtest.paging.ui;
+package com.example.androidtest.paging.datasource;
 
 import android.arch.paging.PositionalDataSource;
 import android.support.annotation.NonNull;
