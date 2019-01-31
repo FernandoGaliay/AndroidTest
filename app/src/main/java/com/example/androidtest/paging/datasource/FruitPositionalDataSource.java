@@ -37,7 +37,10 @@ public class FruitPositionalDataSource extends PositionalDataSource<FruitBo> {
             @Override
             public void onError(String message) {
 
+                // TODO
+
             }
+
         });
 
     }
@@ -59,6 +62,8 @@ public class FruitPositionalDataSource extends PositionalDataSource<FruitBo> {
 
             @Override
             public void onError(String message) {
+
+                // TODO
 
             }
 
