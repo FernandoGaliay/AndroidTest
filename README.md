@@ -55,6 +55,15 @@ ViewModel
 https://github.com/FernandoGaliay/AndroidTest/blob/development/app/src/main/java/com/example/androidtest/viewmodel/FruitViewModel.java
 
 
+Paging Library
+----
+* PositionalDataSource
+* DataSource.Factory
+* Paging recycler
+
+*Java Files*:
+https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/paging/
+
 Job Scheduler
 ----
 // TODO
