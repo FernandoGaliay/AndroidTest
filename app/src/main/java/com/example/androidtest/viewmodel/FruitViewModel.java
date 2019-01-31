@@ -66,9 +66,10 @@ public class FruitViewModel extends ViewModel {
     public void add() {
 
         FruitBo randomFruit = new FruitBo();
+        randomFruit.setId(String.valueOf(Calendar.getInstance().getTimeInMillis()));
         randomFruit.setCategory("Citrico");
         randomFruit.setPhone("666666666");
-        randomFruit.setItem("Naranja" + Calendar.getInstance().getTimeInMillis());
+        randomFruit.setItem("Naranja");
         randomFruit.setFarmName("Frutería Emil");
         fruitRepository.add(randomFruit);
 

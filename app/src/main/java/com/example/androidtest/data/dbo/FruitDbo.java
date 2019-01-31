@@ -2,17 +2,16 @@ package com.example.androidtest.data.dbo;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "fruit_table")
+@Entity(tableName = "fruit_table", primaryKeys = {"id", "item"})
 public class FruitDbo {
 
-    @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
     private String id;
 
+    @NonNull
     @ColumnInfo(name = "item")
     private String item;
 
@@ -25,7 +24,7 @@ public class FruitDbo {
     @ColumnInfo(name = "phone")
     private String phone;
 
-    public FruitDbo(@NonNull String id, String item, String category, String farmName, String phone) {
+    public FruitDbo(@NonNull String id, @NonNull String item, String category, String farmName, String phone) {
         this.id = id;
         this.item = item;
         this.category = category;
@@ -38,6 +37,7 @@ public class FruitDbo {
         return id;
     }
 
+    @NonNull
     public String getItem() {
         return item;
     }
