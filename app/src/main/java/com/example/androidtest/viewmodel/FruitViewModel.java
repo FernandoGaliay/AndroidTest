@@ -27,7 +27,7 @@ public class FruitViewModel extends ViewModel {
         fruitRepository = new FruitRepository();
         errorLiveData = fruitRepository.getErrorLiveData();
         fruitsLiveData = Transformations.switchMap(fruitQuery,
-                fruitQuery -> fruitRepository.getFruits(fruitQuery.getLimit(), fruitQuery.getOffset()));
+                fruitQuery -> fruitRepository.getFruitsByLimitAndOffset(fruitQuery.getLimit(), fruitQuery.getOffset()));
 
     }
 

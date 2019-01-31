@@ -38,7 +38,7 @@ public class FruitRepository {
 
     //region Repository Calls
 
-    public LiveData<List<FruitBo>> getFruits(int limit, int offset) {
+    public LiveData<List<FruitBo>> getFruitsByLimitAndOffset(int limit, int offset) {
 
         if (!fruitsLiveData.hasObservers()) {
 
