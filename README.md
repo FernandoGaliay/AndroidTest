@@ -39,6 +39,10 @@ Room
 * Database
 * LiveData
 
+// TODO
+
+* Relationship (@embeded, @relation, @foreignkey)
+
 *Java Files*:
 https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/db
 
