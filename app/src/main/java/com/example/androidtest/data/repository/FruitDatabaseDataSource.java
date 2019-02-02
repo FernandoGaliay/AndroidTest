@@ -1,7 +1,7 @@
 package com.example.androidtest.data.repository;
 
 import android.arch.lifecycle.LiveData;
-ºimport android.arch.paging.DataSource;
+import android.arch.paging.DataSource;
 
 import com.example.androidtest.TestApplication;
 import com.example.androidtest.data.bo.FruitBo;

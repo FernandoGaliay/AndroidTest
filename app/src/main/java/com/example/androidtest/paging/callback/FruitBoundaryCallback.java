@@ -1,4 +1,4 @@
-ººpackage com.example.androidtest.paging.callback;
+package com.example.androidtest.paging.callback;
 
 import android.arch.paging.PagedList;
 import android.support.annotation.NonNull;
