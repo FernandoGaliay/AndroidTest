@@ -1,6 +1,7 @@
 package com.example.androidtest.db.dao;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.paging.DataSource;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -34,5 +35,8 @@ public interface FruitDao {
 
     @Query("SELECT COUNT(item) FROM fruit_table LIMIT :limit OFFSET :offset")
     LiveData<Integer> count(int limit, int offset);
+
+    @Query("SELECT * FROM fruit_table")
+    DataSource.Factory<Integer, FruitDbo> getPaging();
 
 }

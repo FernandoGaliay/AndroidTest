@@ -4,10 +4,14 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
+import android.arch.paging.DataSource;
+import android.arch.paging.LivePagedListBuilder;
+import android.arch.paging.PagedList;
 
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.data.mapper.FruitMapper;
+import com.example.androidtest.paging.callback.FruitBoundaryCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +102,18 @@ public class FruitRepository {
         List<FruitBo> newRandomFruitList = new ArrayList<>();
         newRandomFruitList.add(randomFruit);
         fruitDatabaseDataSource.setData(newRandomFruitList);
+
+    }
+
+    public LiveData<PagedList<FruitDbo>> getFruitPaging() {
+
+        DataSource.Factory<Integer, FruitDbo> fruitDboFactory = fruitDatabaseDataSource.getPaging();
+        PagedList.Config config = new PagedList.Config.Builder()
+                .setPageSize(10)
+                .build();
+        return new LivePagedListBuilder<>(fruitDboFactory, config)
+                .setBoundaryCallback(new FruitBoundaryCallback(fruitApiDataSource, fruitDatabaseDataSource))
+                .build();
 
     }
 

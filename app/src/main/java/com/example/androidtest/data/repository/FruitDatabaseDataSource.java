@@ -1,6 +1,7 @@
 package com.example.androidtest.data.repository;
 
 import android.arch.lifecycle.LiveData;
+ºimport android.arch.paging.DataSource;
 
 import com.example.androidtest.TestApplication;
 import com.example.androidtest.data.bo.FruitBo;
@@ -22,14 +23,20 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     }
 
-    LiveData<List<FruitDbo>> getAll() {
+    public DataSource.Factory<Integer, FruitDbo> getPaging() {
+
+        return fruitDao.getPaging();
+
+    }
+
+    public LiveData<List<FruitDbo>> getAll() {
 
         return fruitDao.getAll();
 
     }
 
 
-    LiveData<List<FruitDbo>> getAsyncData(int limit, int offset) {
+    public LiveData<List<FruitDbo>> getAsyncData(int limit, int offset) {
 
         return fruitDao.getAsync(limit, offset);
 
@@ -50,14 +57,7 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     }
 
-    boolean exists(int limit, int offset) {
-
-        Integer count = fruitDao.count(limit, offset).getValue();
-        return count != null && count > 0;
-
-    }
-
-    void setData(List<FruitBo> fruitBoList) {
+    public void setData(List<FruitBo> fruitBoList) {
 
         new Thread() {
 

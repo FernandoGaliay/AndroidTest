@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 
 import com.example.androidtest.BaseFragment;
 import com.example.androidtest.R;
-import com.example.androidtest.data.bo.FruitBo;
+import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.viewmodel.PagingFruitViewModel;
 
 public class PagingFragment extends BaseFragment {
@@ -30,7 +30,7 @@ public class PagingFragment extends BaseFragment {
 
     private ProgressBar fruitLoader;
 
-    private PagingAdapter adapter;
+    private PagingDboAdapter adapter;
 
     @Override
     protected int fragmentLayout() {
@@ -49,17 +49,17 @@ public class PagingFragment extends BaseFragment {
         fruitRecycler = view.findViewById(R.id.paging_list_fruit);
         fruitRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         fruitRecycler.setHasFixedSize(true);
-        adapter = new PagingAdapter(new DiffUtil.ItemCallback<FruitBo>() {
+        adapter = new PagingDboAdapter(new DiffUtil.ItemCallback<FruitDbo>() {
 
             @Override
-            public boolean areItemsTheSame(@NonNull FruitBo first, @NonNull FruitBo second) {
+            public boolean areItemsTheSame(@NonNull FruitDbo first, @NonNull FruitDbo second) {
 
                 return first.getId().equals(second.getId());
 
             }
 
             @Override
-            public boolean areContentsTheSame(@NonNull FruitBo first, @NonNull FruitBo second) {
+            public boolean areContentsTheSame(@NonNull FruitDbo first, @NonNull FruitDbo second) {
 
                 return first.getId().equals(second.getId()) &&
                         first.getPhone().equals(second.getPhone()) &&
@@ -72,14 +72,15 @@ public class PagingFragment extends BaseFragment {
         });
         fruitRecycler.setAdapter(adapter);
         viewModel = ViewModelProviders.of(this).get(PagingFruitViewModel.class);
-        viewModel.getFruitPagedListLiveData().observe(this, this::onFruitsReceived);
+        viewModel.getFruitPaged().observe(this, this::onFruitsReceived);
 
     }
 
-    private void onFruitsReceived(PagedList<FruitBo> fruitBoList) {
+    private void onFruitsReceived(PagedList<FruitDbo> fruitBoList) {
 
         fruitLoader.setVisibility(View.GONE);
-        if (fruitRecycler.getAdapter() instanceof PagingAdapter) {
+
+        if (fruitRecycler.getAdapter() instanceof PagingDboAdapter) {
 
             adapter.submitList(fruitBoList);
 
