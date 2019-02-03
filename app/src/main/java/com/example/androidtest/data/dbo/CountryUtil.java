@@ -16,7 +16,7 @@ public class CountryUtil {
         usaCountry.setName("USA");
         usaCountry.setCode("US");
         CountryDbo portugalCountry = new CountryDbo();
-        portugalCountry.setId(3);
+        portugalCountry.setId(2);
         portugalCountry.setName("PORTUGAL");
         portugalCountry.setCode("PT");
 
