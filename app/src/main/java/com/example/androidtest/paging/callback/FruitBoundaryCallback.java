@@ -6,9 +6,9 @@ import android.support.annotation.NonNull;
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.bo.FruitQueryBo;
 import com.example.androidtest.data.dbo.FruitDbo;
-import com.example.androidtest.data.repository.FruitApiDataSource;
-import com.example.androidtest.data.repository.FruitDataSource;
-import com.example.androidtest.data.repository.FruitDatabaseDataSource;
+import com.example.androidtest.data.repository.fruit.FruitApiDataSource;
+import com.example.androidtest.data.repository.fruit.FruitDataSource;
+import com.example.androidtest.data.repository.fruit.FruitDatabaseDataSource;
 
 import java.util.List;
 

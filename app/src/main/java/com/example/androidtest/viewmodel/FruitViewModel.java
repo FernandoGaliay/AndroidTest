@@ -7,7 +7,7 @@ import android.arch.lifecycle.ViewModel;
 
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.bo.FruitQueryBo;
-import com.example.androidtest.data.repository.FruitRepository;
+import com.example.androidtest.data.repository.fruit.FruitRepository;
 
 import java.util.Calendar;
 import java.util.List;

@@ -10,9 +10,9 @@ import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.bo.FruitQueryBo;
 import com.example.androidtest.data.dbo.CountryDbo;
 import com.example.androidtest.data.dbo.CountryUtil;
-import com.example.androidtest.data.repository.CountryRepository;
-import com.example.androidtest.data.repository.FruitDataSource;
-import com.example.androidtest.data.repository.FruitRepository;
+import com.example.androidtest.data.repository.country.CountryRepository;
+import com.example.androidtest.data.repository.fruit.FruitDataSource;
+import com.example.androidtest.data.repository.fruit.FruitRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +33,7 @@ public class SyncJobService extends JobService {
         query = new FruitQueryBo();
         fruitRepository = new FruitRepository();
         countryRepository = new CountryRepository();
+
     }
 
     @Override

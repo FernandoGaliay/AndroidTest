@@ -1,4 +1,4 @@
-package com.example.androidtest.data.repository;
+package com.example.androidtest.data.repository.country;
 
 import android.arch.lifecycle.LiveData;
 

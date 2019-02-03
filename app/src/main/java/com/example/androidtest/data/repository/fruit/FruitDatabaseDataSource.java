@@ -1,4 +1,4 @@
-package com.example.androidtest.data.repository;
+package com.example.androidtest.data.repository.fruit;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.paging.DataSource;
