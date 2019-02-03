@@ -9,6 +9,7 @@ import com.example.androidtest.BaseFragment;
 import com.example.androidtest.R;
 import com.example.androidtest.contraint.ConstraintActivity;
 import com.example.androidtest.paging.ui.PagingActivity;
+import com.example.androidtest.recycler.ui.RecyclerActivity;
 
 public class DashboardFragment extends BaseFragment implements View.OnClickListener {
 
@@ -18,6 +19,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     }
 
     private TextView constraintLabel;
+
+    private TextView recyclerLabel;
 
     private TextView pagingLabel;
 
@@ -35,6 +38,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     protected void setupView(View view) {
         constraintLabel = view.findViewById(R.id.dashboard_constraint_label);
         constraintLabel.setOnClickListener(this);
+        recyclerLabel = view.findViewById(R.id.dashboard_recycler_label);
+        recyclerLabel.setOnClickListener(this);
         pagingLabel = view.findViewById(R.id.dashboard_paging_label);
         pagingLabel.setOnClickListener(this);
     }
@@ -46,6 +51,10 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.dashboard_constraint_label:
                 ConstraintActivity.startActivity(getActivity());
+                break;
+
+            case R.id.dashboard_recycler_label:
+                RecyclerActivity.startActivity(getActivity());
                 break;
 
             case R.id.dashboard_paging_label:

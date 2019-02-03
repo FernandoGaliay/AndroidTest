@@ -7,7 +7,8 @@
     <string name="menu_option_recyclerview">RecyclerView</string>
     <string name="navigation_bottom_recyclerview">RecyclerView</string>
     <string name="menu_option_more_options">Más opciones</string>
-    <string name="dashboard_recyclerview">Paging RecyclerView</string>
+    <string name="dashboard_recyclerview">Room and repository</string>
+    <string name="dashboard_paging">Paging library</string>
     <string name="recycler_title">Recyclerview Example</string>
     <string name="basics_contraints_title">Basic Constraints</string>
     <string name="go_to_basic_constraints">Basic Constraints</string>

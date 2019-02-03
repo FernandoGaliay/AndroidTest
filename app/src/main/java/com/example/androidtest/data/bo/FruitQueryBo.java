@@ -21,8 +21,17 @@ public class FruitQueryBo {
         this.offset = offset;
     }
 
+    public FruitQueryBo nextQuery(){
+        offset = offset + limit;
+        return this;
+    }
+
     public int getLimit() {
         return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 
     public int getOffset() {

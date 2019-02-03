@@ -1,12 +1,13 @@
-package com.example.androidtest.data.repository;
+package com.example.androidtest.data.repository.fruit;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.paging.DataSource;
 
 import com.example.androidtest.TestApplication;
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.data.mapper.FruitMapper;
-import com.example.androidtest.db.FruitRoomDatabase;
+import com.example.androidtest.db.TestRoomDatabase;
 import com.example.androidtest.db.dao.FruitDao;
 
 import java.util.List;
@@ -15,15 +16,27 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     private FruitDao fruitDao;
 
-    FruitDatabaseDataSource() {
+    public FruitDatabaseDataSource() {
 
-        FruitRoomDatabase db = FruitRoomDatabase.getDatabase(TestApplication.getINSTANCE());
+        TestRoomDatabase db = TestRoomDatabase.getDatabase(TestApplication.getINSTANCE());
         fruitDao = db.fruitDao();
 
     }
 
+    public DataSource.Factory<Integer, FruitDbo> getPaging() {
 
-    LiveData<List<FruitDbo>> getAsyncData(int limit, int offset) {
+        return fruitDao.getPaging();
+
+    }
+
+    public LiveData<List<FruitDbo>> getAll() {
+
+        return fruitDao.getAll();
+
+    }
+
+
+    public LiveData<List<FruitDbo>> getAsyncData(int limit, int offset) {
 
         return fruitDao.getAsync(limit, offset);
 
@@ -44,14 +57,7 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     }
 
-    boolean exists(int limit, int offset) {
-
-        Integer count = fruitDao.count(limit, offset).getValue();
-        return count != null && count > 0;
-
-    }
-
-    void setData(List<FruitBo> fruitBoList) {
+    public void setData(List<FruitBo> fruitBoList) {
 
         new Thread() {
 

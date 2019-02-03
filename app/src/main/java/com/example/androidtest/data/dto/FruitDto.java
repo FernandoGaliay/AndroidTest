@@ -6,6 +6,9 @@ import java.io.Serializable;
 
 public class FruitDto implements Serializable {
 
+    @SerializedName("farmer_id")
+    private String id;
+
     @SerializedName("item")
     private String item;
 
@@ -17,6 +20,10 @@ public class FruitDto implements Serializable {
 
     @SerializedName("phone1")
     private String phone;
+
+    public String getId() {
+        return id;
+    }
 
     public String getItem() {
         return item;
