@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData;
 
 import com.example.androidtest.TestApplication;
 import com.example.androidtest.data.dbo.CountryDbo;
-import com.example.androidtest.db.FruitRoomDatabase;
+import com.example.androidtest.db.TestRoomDatabase;
 import com.example.androidtest.db.dao.CountryDao;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class CountryDatabaseDataSource {
 
     public CountryDatabaseDataSource() {
 
-        FruitRoomDatabase db = FruitRoomDatabase.getDatabase(TestApplication.getINSTANCE());
+        TestRoomDatabase db = TestRoomDatabase.getDatabase(TestApplication.getINSTANCE());
         countryDao = db.countryDao();
 
     }

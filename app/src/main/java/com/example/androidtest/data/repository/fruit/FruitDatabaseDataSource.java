@@ -7,7 +7,7 @@ import com.example.androidtest.TestApplication;
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.data.mapper.FruitMapper;
-import com.example.androidtest.db.FruitRoomDatabase;
+import com.example.androidtest.db.TestRoomDatabase;
 import com.example.androidtest.db.dao.FruitDao;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     public FruitDatabaseDataSource() {
 
-        FruitRoomDatabase db = FruitRoomDatabase.getDatabase(TestApplication.getINSTANCE());
+        TestRoomDatabase db = TestRoomDatabase.getDatabase(TestApplication.getINSTANCE());
         fruitDao = db.fruitDao();
 
     }
