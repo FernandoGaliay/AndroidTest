@@ -41,13 +41,4 @@ public class CountryDbo {
         this.id = id;
     }
 
-    public static CountryDbo getDefaultInstance() {
-
-        CountryDbo defaultCountry = new CountryDbo();
-        defaultCountry.setName("SPAIN");
-        defaultCountry.setCode("ES");
-        return defaultCountry;
-
-    }
-
 }

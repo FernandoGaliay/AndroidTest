@@ -9,7 +9,6 @@ import android.os.Build;
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.bo.FruitQueryBo;
 import com.example.androidtest.data.dbo.CountryDbo;
-import com.example.androidtest.data.dbo.CountryUtil;
 import com.example.androidtest.data.repository.country.CountryRepository;
 import com.example.androidtest.data.repository.fruit.FruitDataSource;
 import com.example.androidtest.data.repository.fruit.FruitRepository;
@@ -40,18 +39,15 @@ public class SyncJobService extends JobService {
     public boolean onStartJob(JobParameters params) {
 
         observer = countryDboList -> {
-            assert countryDboList != null;
-            requestFruits(params, countryDboList.get(0)); // After country table is initialized, request fuits
+
+            if (countryDboList != null && countryDboList.size() > 0) {
+
+                requestFruits(params, countryDboList.get(0)); // After country table is initialized, request fuits
+
+            }
         };
-        initializeCountryTable(observer);
-        return true;
-
-    }
-
-    private void initializeCountryTable(Observer<List<CountryDbo>> observer) {
-
         countryRepository.getCountryies().observeForever(observer);
-        countryRepository.setData(CountryUtil.getCountries());
+        return true;
 
     }
 
@@ -62,7 +58,7 @@ public class SyncJobService extends JobService {
             @Override
             public void onSuccess(List<FruitBo> data) {
 
-                if (data == null || query.getOffset() > data.size()) {
+                if (data == null || query.getLimit() > data.size()) {
 
                     countryRepository.getCountryies().removeObserver(observer);
                     jobFinished(params, false);

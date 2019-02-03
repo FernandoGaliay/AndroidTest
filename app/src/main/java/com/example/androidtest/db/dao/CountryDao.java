@@ -29,4 +29,7 @@ public interface CountryDao {
 
     @Query("SELECT * FROM country_table")
     LiveData<List<CountryDbo>> getDataAsync();
+
+    @Query("DELETE FROM country_table")
+    void deleteAll();
 }

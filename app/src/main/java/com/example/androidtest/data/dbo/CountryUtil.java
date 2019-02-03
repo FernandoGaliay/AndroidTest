@@ -8,12 +8,15 @@ public class CountryUtil {
     public static List<CountryDbo> getCountries() {
 
         CountryDbo spainCountry = new CountryDbo();
+        spainCountry.setId(0);
         spainCountry.setName("SPAIN");
         spainCountry.setCode("ES");
         CountryDbo usaCountry = new CountryDbo();
+        usaCountry.setId(1);
         usaCountry.setName("USA");
         usaCountry.setCode("US");
         CountryDbo portugalCountry = new CountryDbo();
+        portugalCountry.setId(3);
         portugalCountry.setName("PORTUGAL");
         portugalCountry.setCode("PT");
 
