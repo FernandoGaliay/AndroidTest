@@ -81,4 +81,7 @@ public class FruitDbo {
         this.countryId = countryId;
     }
 
+    public int getCountryId() {
+        return countryId;
+    }
 }

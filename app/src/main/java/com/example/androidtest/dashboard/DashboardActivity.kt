@@ -1,10 +1,12 @@
 package com.example.androidtest.dashboard
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import com.example.androidtest.BaseToolbarActivity
 import com.example.androidtest.R
+import com.example.androidtest.viewmodel.InitializationViewModel
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : BaseToolbarActivity() {
@@ -14,6 +16,9 @@ class DashboardActivity : BaseToolbarActivity() {
         setFragment(DashboardFragment.newInstance())
         setupBottomNavigation()
         setupToolbar()
+
+        val viewModel = ViewModelProviders.of(this).get(InitializationViewModel::class.java)
+        viewModel.startSync(this)
 
     }
 

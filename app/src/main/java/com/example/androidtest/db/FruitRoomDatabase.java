@@ -11,7 +11,7 @@ import com.example.androidtest.data.dbo.LocationDbo;
 import com.example.androidtest.db.dao.CountryDao;
 import com.example.androidtest.db.dao.FruitDao;
 
-@Database(entities = {FruitDbo.class, CountryDbo.class, LocationDbo.class}, version = 1)
+@Database(entities = {FruitDbo.class, CountryDbo.class}, version = 1)
 public abstract class FruitRoomDatabase extends RoomDatabase {
 
     private static volatile FruitRoomDatabase INSTANCE;

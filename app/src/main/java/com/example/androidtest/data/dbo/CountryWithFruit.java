@@ -12,4 +12,20 @@ public class CountryWithFruit {
 
     @Relation(parentColumn = "id", entityColumn = "country_id")
     private List<FruitDbo> fruitDboList;
+
+    public CountryDbo getCountryDbo() {
+        return countryDbo;
+    }
+
+    public List<FruitDbo> getFruitDboList() {
+        return fruitDboList;
+    }
+
+    public void setCountryDbo(CountryDbo countryDbo) {
+        this.countryDbo = countryDbo;
+    }
+
+    public void setFruitDboList(List<FruitDbo> fruitDboList) {
+        this.fruitDboList = fruitDboList;
+    }
 }

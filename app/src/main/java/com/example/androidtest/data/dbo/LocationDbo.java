@@ -1,22 +1,15 @@
 package com.example.androidtest.data.dbo;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-
-@Entity(tableName = "location_table")
 public class LocationDbo {
 
     private static final double DEFAULT_double = 34.34;
 
     private static final double DEFAULT_LAT = 24.24;
 
-    @ColumnInfo(name = "latitude")
     private double latitude;
 
-    @ColumnInfo(name = "longitude")
     private double longitude;
 
-    @ColumnInfo(name = "needs_recording")
     private boolean needsRecording;
 
     public double getLatitude() {

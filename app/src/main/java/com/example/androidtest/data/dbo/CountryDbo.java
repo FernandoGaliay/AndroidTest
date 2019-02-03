@@ -37,6 +37,10 @@ public class CountryDbo {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public static CountryDbo getDefaultInstance() {
 
         CountryDbo defaultCountry = new CountryDbo();
