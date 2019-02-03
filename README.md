@@ -35,18 +35,16 @@ https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java
 Room
 ----
 * Dao (Insert, query, delete)
-* Entity
+* Entity (Autogenerate primary key)
 * Database
 * LiveData
-
-// TODO
-
-* Relationship (@embeded, @relation, @foreignkey)
+* Embbeded
+* Relation
 
 *Java Files*:
 https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/db
 
-https://github.com/FernandoGaliay/AndroidTest/blob/development/app/src/main/java/com/example/androidtest/data/dbo/FruitDbo.java
+https://github.com/FernandoGaliay/AndroidTest/blob/development/app/src/main/java/com/example/androidtest/data/dbo/
 
 
 ViewModel
@@ -70,4 +68,6 @@ https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java
 
 Job Scheduler
 ----
-// TODO
+* JobService (Sync data and persists in room)
+
+*Java Files*: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/job/

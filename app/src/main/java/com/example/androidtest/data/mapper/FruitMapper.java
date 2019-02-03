@@ -90,14 +90,18 @@ public class FruitMapper {
 
         if (fruitBo != null) {
 
-            fruitDbo = new FruitDbo(fruitBo.getId(), fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone());
+            fruitDbo = new FruitDbo(fruitBo.getId(), fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone(), null, fruitBo.getCountryId());
 
         }
         return fruitDbo;
     }
 
-
     public static List<FruitDbo> boToDbo(List<FruitBo> fruitBoList) {
+        return boToDbo(fruitBoList, -1);
+    }
+
+
+    public static List<FruitDbo> boToDbo(List<FruitBo> fruitBoList, int countryId) {
 
         List<FruitDbo> fruitDboList = null;
 
@@ -107,7 +111,9 @@ public class FruitMapper {
 
             for (FruitBo fruitBo : fruitBoList) {
 
-                fruitDboList.add(FruitMapper.boToDbo(fruitBo));
+                FruitDbo fruitDbo = FruitMapper.boToDbo(fruitBo);
+                fruitDbo.setCountryId(countryId);
+                fruitDboList.add(fruitDbo);
 
             }
 

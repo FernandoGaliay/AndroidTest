@@ -1,18 +1,14 @@
 package com.example.androidtest.viewmodel;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
 
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
-import com.example.androidtest.data.mapper.FruitMapper;
-import com.example.androidtest.data.repository.FruitRepository;
+import com.example.androidtest.data.repository.fruit.FruitRepository;
 import com.example.androidtest.paging.datasource.FruitDataSourceFactory;
-
-import java.util.List;
 
 public class PagingFruitViewModel extends ViewModel {
 

@@ -4,8 +4,8 @@ import android.arch.paging.PositionalDataSource;
 import android.support.annotation.NonNull;
 
 import com.example.androidtest.data.bo.FruitBo;
-import com.example.androidtest.data.repository.FruitDataSource;
-import com.example.androidtest.data.repository.FruitRepository;
+import com.example.androidtest.data.repository.fruit.FruitDataSource;
+import com.example.androidtest.data.repository.fruit.FruitRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.androidtest.data.repository;
+package com.example.androidtest.data.repository.fruit;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
@@ -97,7 +97,13 @@ public class FruitRepository {
 
     }
 
-    public void add(FruitBo randomFruit) {
+    public void setData(List<FruitBo> fruitBoList){
+
+        fruitDatabaseDataSource.setData(fruitBoList);
+
+    }
+
+    public void setData(FruitBo randomFruit) {
 
         List<FruitBo> newRandomFruitList = new ArrayList<>();
         newRandomFruitList.add(randomFruit);

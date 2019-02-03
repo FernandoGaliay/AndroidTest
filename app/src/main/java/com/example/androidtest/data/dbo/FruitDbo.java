@@ -38,8 +38,16 @@ public class FruitDbo {
         this.category = category;
         this.farmName = farmName;
         this.phone = phone;
-        this.location = location;
-        this.countryId = countryId;
+
+        if (location == null) {
+
+            this.location = LocationDbo.getDefaultInstance();
+
+        } else {
+
+            this.location = location;
+
+        }
 
     }
 
@@ -67,5 +75,13 @@ public class FruitDbo {
 
     public LocationDbo getLocation() {
         return location;
+    }
+
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
+    }
+
+    public int getCountryId() {
+        return countryId;
     }
 }
