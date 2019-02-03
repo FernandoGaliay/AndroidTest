@@ -12,6 +12,8 @@ public class FruitBo {
 
     private String phone;
 
+    private int countryId;
+
     public String getItem() {
         return item;
     }
@@ -50,5 +52,13 @@ public class FruitBo {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
     }
 }

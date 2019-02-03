@@ -14,18 +14,8 @@ public class CountryDbo {
     @ColumnInfo(name = "name")
     private String name;
 
-    public CountryDbo(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    @ColumnInfo(name = "code")
+    private String code;
 
     public String getName() {
         return name;
@@ -34,4 +24,26 @@ public class CountryDbo {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static CountryDbo getDefaultInstance() {
+
+        CountryDbo defaultCountry = new CountryDbo();
+        defaultCountry.setName("SPAIN");
+        defaultCountry.setCode("ES");
+        return defaultCountry;
+
+    }
+
 }

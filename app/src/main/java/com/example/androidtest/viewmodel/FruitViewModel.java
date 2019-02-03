@@ -71,7 +71,7 @@ public class FruitViewModel extends ViewModel {
         randomFruit.setPhone("666666666");
         randomFruit.setItem("Naranja");
         randomFruit.setFarmName("Frutería Emil");
-        fruitRepository.add(randomFruit);
+        fruitRepository.setData(randomFruit);
 
     }
 

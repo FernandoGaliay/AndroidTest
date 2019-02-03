@@ -97,7 +97,13 @@ public class FruitRepository {
 
     }
 
-    public void add(FruitBo randomFruit) {
+    public void setData(List<FruitBo> fruitBoList){
+
+        fruitDatabaseDataSource.setData(fruitBoList);
+
+    }
+
+    public void setData(FruitBo randomFruit) {
 
         List<FruitBo> newRandomFruitList = new ArrayList<>();
         newRandomFruitList.add(randomFruit);
