@@ -16,20 +16,24 @@ import java.util.List;
 @Dao
 public interface CountryDao {
 
-    @Transaction
     @Query("SELECT * FROM country_table")
     List<CountryWithFruit> getCountriesWithFruits();
 
-    @Transaction
-    @Query("SELECT * FROM country_table")
+    @Query("SELECT id, name, code FROM country_table")
     List<CountryNameWithFruit> getCountryNameWithFruits();
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(List<CountryDbo> countryDboList);
 
     @Query("SELECT * FROM country_table")
     LiveData<List<CountryDbo>> getDataAsync();
 
+    @Query("SELECT * FROM country_table")
+    List<CountryDbo> getData();
+
     @Query("DELETE FROM country_table")
     void deleteAll();
+
+    @Query(("SELECT id, name, code FROM country_table WHERE name LIKE :name"))
+    List<CountryNameWithFruit> getCountryByName(String name);
 }

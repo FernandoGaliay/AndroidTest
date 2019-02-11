@@ -3,9 +3,10 @@ package com.example.androidtest.data.dbo;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "fruit_table", primaryKeys = {"id", "item"})
+@Entity(tableName = "fruit_table", primaryKeys = {"id", "item"}, foreignKeys = @ForeignKey(entity = CountryDbo.class, parentColumns = "id", childColumns = "country_id"))
 public class FruitDbo {
 
     @NonNull
@@ -48,6 +49,8 @@ public class FruitDbo {
             this.location = location;
 
         }
+
+        this.countryId = countryId;
 
     }
 

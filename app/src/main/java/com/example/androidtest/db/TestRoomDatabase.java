@@ -13,7 +13,7 @@ import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.db.dao.CountryDao;
 import com.example.androidtest.db.dao.FruitDao;
 
-@Database(entities = {FruitDbo.class, CountryDbo.class}, version = 2)
+@Database(entities = {FruitDbo.class, CountryDbo.class}, version = 3)
 public abstract class TestRoomDatabase extends RoomDatabase {
 
     private static volatile TestRoomDatabase INSTANCE;
@@ -26,19 +26,27 @@ public abstract class TestRoomDatabase extends RoomDatabase {
 
                 if (INSTANCE == null) {
 
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), TestRoomDatabase.class, "fruit_database")
+                    INSTANCE = Room.databaseBuilder(context, TestRoomDatabase.class, "fruit_database")
+                            .allowMainThreadQueries() // Just for testing
                             .addCallback(new Callback() {
+
                                 @Override
                                 public void onOpen(@NonNull SupportSQLiteDatabase db) {
+
                                     super.onOpen(db);
-                                    new Thread(){
+
+                                    new Thread() {
 
                                         @Override
                                         public void run() {
 
                                             CountryDao countryDao = INSTANCE.countryDao();
-                                            countryDao.deleteAll();
-                                            countryDao.insert(CountryUtil.getCountries());
+
+                                            if (countryDao.getData().isEmpty()) {
+
+                                                countryDao.insert(CountryUtil.getCountries());
+
+                                            }
 
                                         }
 
