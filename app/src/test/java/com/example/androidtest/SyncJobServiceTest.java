@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.junit.rules.TestRule;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
+import org.mockito.InOrder;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -70,7 +71,10 @@ public class SyncJobServiceTest {
         FruitQueryBo fruitQueryBo = new FruitQueryBo();
         Mockito.verify(fruitRepository).getFruitPaging(Matchers.eq(fruitQueryBo.getLimit()), Matchers.eq(fruitQueryBo.getOffset()), callbackArgumentCaptor.capture());
         callbackArgumentCaptor.getValue().onSuccess(TEN_FRUITS);
-        Mockito.verify(fruitRepository).setData(TEN_FRUITS);
+        fruitQueryBo.nextQuery();
+        InOrder inOrder = Mockito.inOrder(fruitRepository);
+        inOrder.verify(fruitRepository).setData(TEN_FRUITS);
+        inOrder.verify(fruitRepository).getFruitPaging(Matchers.eq(fruitQueryBo.getLimit()), Matchers.eq(fruitQueryBo.getOffset()), callbackArgumentCaptor.capture());
     }
 
     @Test
@@ -79,6 +83,7 @@ public class SyncJobServiceTest {
         FruitQueryBo fruitQueryBo = new FruitQueryBo();
         Mockito.verify(fruitRepository).getFruitPaging(Matchers.eq(fruitQueryBo.getLimit()), Matchers.eq(fruitQueryBo.getOffset()), callbackArgumentCaptor.capture());
         callbackArgumentCaptor.getValue().onSuccess(ONE_FRUITS);
-        Mockito.verifyZeroInteractions(fruitRepository);
+        Mockito.verify(fruitRepository).setData(ONE_FRUITS);
+        Mockito.verifyNoMoreInteractions(fruitRepository);
     }
 }

@@ -61,6 +61,17 @@ public class SyncJobService extends JobService {
                 if (data == null || query.getLimit() > data.size()) {
 
                     countryRepository.getCountryies().removeObserver(observer);
+
+                    List<FruitBo> fruitWithCountryList = new ArrayList<>();
+
+                    for (FruitBo fruit : data) {
+
+                        fruit.setCountryId(defaultCountry.getId());
+                        fruitWithCountryList.add(fruit);
+
+                    }
+
+                    fruitRepository.setData(fruitWithCountryList);
                     jobFinished(params, false);
 
                 } else {
