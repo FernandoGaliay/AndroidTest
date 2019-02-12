@@ -31,7 +31,7 @@ public class FruitViewModel extends ViewModel {
 
     }
 
-    //region Getters
+    //region Getters and Setters
 
     public LiveData<List<FruitBo>> getFruits() {
 
@@ -43,6 +43,14 @@ public class FruitViewModel extends ViewModel {
 
         return errorLiveData;
 
+    }
+
+    public void setFruitRepository(FruitRepository fruitRepository) {
+        this.fruitRepository = fruitRepository;
+    }
+
+    public void setFruitQuery(MutableLiveData<FruitQueryBo> fruitQuery) {
+        this.fruitQuery = fruitQuery;
     }
 
     //endregion
