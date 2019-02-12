@@ -39,4 +39,7 @@ public interface FruitDao {
     @Query("SELECT * FROM fruit_table")
     DataSource.Factory<Integer, FruitDbo> getPaging();
 
+    @Query("SELECT fruit_table.item, country_table.name FROM fruit_table INNER JOIN country_table ON fruit_table.country_id = country_table.id")
+    List<FruitItemWithCountryName> getFruitWithCountryName();
+
 }

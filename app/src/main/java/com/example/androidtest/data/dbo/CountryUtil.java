@@ -8,7 +8,7 @@ public class CountryUtil {
     public static List<CountryDbo> getCountries() {
 
         CountryDbo spainCountry = new CountryDbo();
-        spainCountry.setId(0);
+        spainCountry.setId(3);
         spainCountry.setName("SPAIN");
         spainCountry.setCode("ES");
         CountryDbo usaCountry = new CountryDbo();

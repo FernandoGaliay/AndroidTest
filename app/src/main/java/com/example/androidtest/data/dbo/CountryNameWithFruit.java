@@ -12,7 +12,7 @@ public class CountryNameWithFruit {
 
     private String code;
 
-    @Relation(parentColumn = "id", entityColumn = "country_id")
+    @Relation(parentColumn = "id", entityColumn = "country_id", entity = FruitDbo.class)
     private List<FruitDbo> fruitDboList;
 
     public String getCode() {

@@ -40,4 +40,15 @@
         app:layout_constraintStart_toEndOf="@+id/dashboard_recycler_label"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/dashboard_snackbar_label"
+        style="@style/Button.Primary.Text_Normal_White.Two_Line"
+        android:text="@string/dashboard_snackbar"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_constraint_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/small"
+        android:layout_marginTop="@dimen/small"
+        android:layout_height="wrap_content" />
+
 </android.support.constraint.ConstraintLayout>

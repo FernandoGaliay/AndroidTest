@@ -16,4 +16,7 @@
     <string name="basic_constraints_description">Description:</string>
     <string name="basic_constraints_resume">Resume:</string>
     <string name="paging_title">Paging RecyclerView</string>
+    <string name="dashboard_snackbar">Snackbar</string>
+    <string name="dashboard_snackbar_message">Snackbar message test</string>
+    <string name="snackbar_action_click">CLICK ON</string>
 </resources>
