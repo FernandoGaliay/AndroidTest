@@ -99,4 +99,8 @@ public class SyncJobService extends JobService {
         return false;
 
     }
+
+    public void setFruitRepository(FruitRepository fruitRepository) {
+        this.fruitRepository = fruitRepository;
+    }
 }
