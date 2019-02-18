@@ -98,7 +98,7 @@ public class FruitMapper {
     }
 
 
-    public static List<FruitDbo> boToDbo(List<FruitBo> fruitBoList) {
+    public static List<FruitDbo> boToDbo(List<FruitBo> fruitBoList, int countryId) {
 
         List<FruitDbo> fruitDboList = null;
 
@@ -109,6 +109,7 @@ public class FruitMapper {
             for (FruitBo fruitBo : fruitBoList) {
 
                 FruitDbo fruitDbo = FruitMapper.boToDbo(fruitBo);
+                fruitDbo.setCountryId(countryId);
                 fruitDboList.add(fruitDbo);
 
             }

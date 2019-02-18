@@ -2,7 +2,9 @@ package com.example.androidtest.paging.callback;
 
 import android.arch.paging.PagedList;
 import android.support.annotation.NonNull;
+import android.support.test.espresso.idling.CountingIdlingResource;
 
+import com.example.androidtest.EspressoIdlingResource;
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.bo.FruitQueryBo;
 import com.example.androidtest.data.dbo.FruitDbo;
@@ -46,21 +48,19 @@ public class FruitBoundaryCallback extends PagedList.BoundaryCallback<FruitDbo> 
     }
 
     private void requestFruits() {
-
+        EspressoIdlingResource.increment();
         apiDataSource.getAsyncData(queryBo.getLimit(), queryBo.getOffset(), new FruitDataSource.Callback<List<FruitBo>>() {
 
             @Override
             public void onSuccess(List<FruitBo> data) {
-
                 databaseDataSource.setData(data);
-
+                EspressoIdlingResource.decrement();
             }
 
             @Override
             public void onError(String message) {
-
+                EspressoIdlingResource.decrement();
                 // TODO
-
             }
         });
 

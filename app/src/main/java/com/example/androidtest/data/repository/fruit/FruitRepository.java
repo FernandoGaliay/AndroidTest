@@ -111,9 +111,9 @@ public class FruitRepository {
 
     }
 
-    public LiveData<PagedList<FruitDbo>> getFruitPaging() {
+    public LiveData<PagedList<FruitDbo>> getFruitPagingByName(String fruitName) {
 
-        DataSource.Factory<Integer, FruitDbo> fruitDboFactory = fruitDatabaseDataSource.getPaging();
+        DataSource.Factory<Integer, FruitDbo> fruitDboFactory = fruitDatabaseDataSource.getPagingByName(fruitName);
         PagedList.Config config = new PagedList.Config.Builder()
                 .setPageSize(10)
                 .build();

@@ -8,6 +8,7 @@ import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
 import com.example.androidtest.data.mapper.FruitMapper;
 import com.example.androidtest.db.TestRoomDatabase;
+import com.example.androidtest.db.dao.CountryDao;
 import com.example.androidtest.db.dao.FruitDao;
 
 import java.util.List;
@@ -23,9 +24,10 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
     }
 
-    public DataSource.Factory<Integer, FruitDbo> getPaging() {
+    public DataSource.Factory<Integer, FruitDbo> getPagingByName(String fruitName) {
 
-        return fruitDao.getPaging();
+        String formattedFruitName = "%" + fruitName + "%";
+        return fruitDao.getPagingByName(formattedFruitName);
 
     }
 
@@ -63,8 +65,8 @@ public class FruitDatabaseDataSource extends FruitDataSource<FruitBo> {
 
             @Override
             public void run() {
-
-                fruitDao.insert(FruitMapper.boToDbo(fruitBoList));
+                CountryDao countryDao = TestRoomDatabase.getDatabase(TestApplication.getINSTANCE()).countryDao();
+                fruitDao.insert(FruitMapper.boToDbo(fruitBoList, countryDao.getData().get(0).getId()));
 
             }
 

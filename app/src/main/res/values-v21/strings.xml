@@ -4,4 +4,10 @@
     <string name="dashboard_snackbar">Snackbar</string>
     <string name="dashboard_snackbar_message">Snackbar message test</string>
     <string name="snackbar_action_click">CLICK ON</string>
+    <string name="paging_search">Search</string>
+    <string name="dashboard_notification">Notifications</string>
+    <string name="notification_create">Create</string>
+    <string name="notification_dismiss">Dismiss</string>
+    <string name="notification_title">Title</string>
+    <string name="notification_description">This is the description for a notification.</string>
 </resources>

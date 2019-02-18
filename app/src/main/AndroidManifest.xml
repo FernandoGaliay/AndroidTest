@@ -23,6 +23,7 @@
         <activity android:name=".contraint.ConstraintActivity" />
         <activity android:name=".paging.ui.PagingActivity" />
         <activity android:name=".recycler.ui.RecyclerActivity" />
+        <activity android:name=".notification.NotificationActivity" />
 
         <service
             android:name=".job.SyncJobService"

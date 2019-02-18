@@ -26,7 +26,7 @@ public class InitializationViewModel extends ViewModel {
                 .setRequiresCharging(true)
                 .build();
 
-        jobScheduler.schedule(jobIno);
+//        jobScheduler.schedule(jobIno);
 
     }
 

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.androidtest.data.dbo.CountryDbo;
 import com.example.androidtest.data.dbo.CountryNameWithFruit;
 import com.example.androidtest.data.dbo.CountryWithFruit;
 import com.example.androidtest.data.repository.country.CountryRepository;
@@ -17,7 +16,6 @@ import com.example.androidtest.db.dao.FruitItemWithCountryName;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -68,11 +66,11 @@ public class DatabaseTest {
     }
 
     @Test
-    public void likeQueries(){
+    public void likeQueries() {
         String spainName = "SPAIN";
         String queryName = "%" + spainName + "%";
         List<CountryNameWithFruit> countryNameWithFruitList = countryDao.getCountryByName(queryName);
-        assert(!countryNameWithFruitList.isEmpty() && spainName.equals(countryNameWithFruitList.get(0).getName()));
+        assert (!countryNameWithFruitList.isEmpty() && spainName.equals(countryNameWithFruitList.get(0).getName()));
     }
 
 }

@@ -10,8 +10,10 @@ import android.widget.Toast;
 import com.example.androidtest.BaseFragment;
 import com.example.androidtest.R;
 import com.example.androidtest.contraint.ConstraintActivity;
+import com.example.androidtest.notification.NotificationActivity;
 import com.example.androidtest.paging.ui.PagingActivity;
 import com.example.androidtest.recycler.ui.RecyclerActivity;
+import com.example.androidtest.snackbar.SnackbarHelper;
 
 public class DashboardFragment extends BaseFragment implements View.OnClickListener {
 
@@ -21,12 +23,10 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     }
 
     private TextView constraintLabel;
-
     private TextView recyclerLabel;
-
     private TextView pagingLabel;
-
     private TextView snackbarLabel;
+    private TextView notificationLabel;
 
     @Override
     protected int fragmentLayout() {
@@ -48,6 +48,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         pagingLabel.setOnClickListener(this);
         snackbarLabel = view.findViewById(R.id.dashboard_snackbar_label);
         snackbarLabel.setOnClickListener(this);
+        notificationLabel = view.findViewById(R.id.dashboard_notification_label);
+        notificationLabel.setOnClickListener(this);
     }
 
     //region OnClickListener Interface
@@ -67,29 +69,10 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                 PagingActivity.startActivity(getActivity());
                 break;
             case R.id.dashboard_snackbar_label:
-                if(getView() == null){
-                    return;
-                }
-               Snackbar snackbar = Snackbar.make(getView(), R.string.dashboard_snackbar_message, Snackbar.LENGTH_LONG);
-                snackbar.setAction(R.string.snackbar_action_click, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        snackbar.dismiss();
-                    }
-                });
-                snackbar.setActionTextColor(getResources().getColor(R.color.colorAccent));
-                snackbar.addCallback(new Snackbar.Callback(){
-                    @Override
-                    public void onDismissed(Snackbar transientBottomBar, int event) {
-                        super.onDismissed(transientBottomBar, event);
-                    }
-
-                    @Override
-                    public void onShown(Snackbar sb) {
-                        super.onShown(sb);
-                    }
-                });
-                snackbar.show();
+                SnackbarHelper.show(getActivity(), v);
+                break;
+            case R.id.dashboard_notification_label:
+                NotificationActivity.startActivity(getActivity());
                 break;
             default:
                 Log.w(getClass().getSimpleName(), "Id not found to match with the cases.");

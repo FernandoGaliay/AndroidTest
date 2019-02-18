@@ -2,6 +2,7 @@ package com.example.androidtest.paging.ui;
 
 import android.arch.paging.PagedListAdapter;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,7 +43,7 @@ public class PagingDboAdapter extends PagedListAdapter<FruitDbo, PagingDboAdapte
     }
 
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private final TextView nameLabel;
         private final TextView dateLabel;
@@ -52,7 +53,12 @@ public class PagingDboAdapter extends PagedListAdapter<FruitDbo, PagingDboAdapte
             super(itemView);
             nameLabel = itemView.findViewById(R.id.row_label_name);
             dateLabel = itemView.findViewById(R.id.row_label_date);
+            itemView.setOnClickListener(this);
+        }
 
+        @Override
+        public void onClick(View v) {
+            Snackbar.make(v, R.string.snackbar_action_click, Snackbar.LENGTH_SHORT).show();
         }
     }
 }

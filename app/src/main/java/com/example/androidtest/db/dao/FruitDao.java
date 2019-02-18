@@ -36,8 +36,8 @@ public interface FruitDao {
     @Query("SELECT COUNT(item) FROM fruit_table LIMIT :limit OFFSET :offset")
     LiveData<Integer> count(int limit, int offset);
 
-    @Query("SELECT * FROM fruit_table")
-    DataSource.Factory<Integer, FruitDbo> getPaging();
+    @Query("SELECT * FROM fruit_table WHERE item LIKE :fruitName")
+    DataSource.Factory<Integer, FruitDbo> getPagingByName(String fruitName);
 
     @Query("SELECT fruit_table.item, country_table.name FROM fruit_table INNER JOIN country_table ON fruit_table.country_id = country_table.id")
     List<FruitItemWithCountryName> getFruitWithCountryName();
