@@ -19,6 +19,7 @@ import com.example.androidtest.paging.ui.PagingActivity;
 import com.example.androidtest.preference.PreferenceActivity;
 import com.example.androidtest.recycler.ui.RecyclerActivity;
 import com.example.androidtest.snackbar.SnackbarHelper;
+import com.example.androidtest.util.FileUtil;
 
 public class DashboardFragment extends BaseFragment implements View.OnClickListener {
 
@@ -61,6 +62,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
             String listPref = sharedPref.getString(getString(R.string.key_preference_list), "0");
             Toast.makeText(getActivity(), listPref, Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
