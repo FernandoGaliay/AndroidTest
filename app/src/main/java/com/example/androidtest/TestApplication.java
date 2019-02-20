@@ -10,6 +10,13 @@ public class TestApplication extends Application {
         INSTANCE = this;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        android.support.v7.preference.PreferenceManager
+                .setDefaultValues(this, R.xml.preference, false);
+    }
+
     public static TestApplication getINSTANCE(){
         return INSTANCE;
     }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Primary category">
+
+        <SwitchPreferenceCompat
+            android:key="preference_switch"
+            android:summary="This is switch preference"
+            android:title="Switch preference" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="check_box_preference_1"
+            android:title="Check box preference" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Secondary category">
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Edit text preference" />
+
+        <ListPreference
+            android:key="@string/key_preference_list"
+            android:title="@string/key_preference_list"
+            android:dialogTitle="Elige una"
+            android:entries="@array/list_preference_entries"
+            android:entryValues="@array/list_preference_entry_values"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

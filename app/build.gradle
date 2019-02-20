@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     productFlavors {
         mock {
@@ -54,6 +55,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     // Room components
     implementation "android.arch.persistence.room:runtime:$room_version"
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:support-vector-drawable:28.0.0'
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     androidTestImplementation "android.arch.persistence.room:testing:$room_version"
     // Lifecycle components
@@ -63,6 +66,8 @@ dependencies {
     implementation 'android.arch.paging:runtime:1.0.1'
     implementation 'org.mockito:mockito-all:2.0.2-beta'
     implementation 'com.google.guava:guava:27.0.1-jre'
+
+    implementation 'com.android.support:preference-v7:28.0.0'
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'com.android.support.test:runner:1.0.2'

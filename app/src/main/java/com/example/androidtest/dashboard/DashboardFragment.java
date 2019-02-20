@@ -1,8 +1,12 @@
 package com.example.androidtest.dashboard;
 
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +16,7 @@ import com.example.androidtest.R;
 import com.example.androidtest.contraint.ConstraintActivity;
 import com.example.androidtest.notification.NotificationActivity;
 import com.example.androidtest.paging.ui.PagingActivity;
+import com.example.androidtest.preference.PreferenceActivity;
 import com.example.androidtest.recycler.ui.RecyclerActivity;
 import com.example.androidtest.snackbar.SnackbarHelper;
 
@@ -50,6 +55,30 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         snackbarLabel.setOnClickListener(this);
         notificationLabel = view.findViewById(R.id.dashboard_notification_label);
         notificationLabel.setOnClickListener(this);
+
+        if (getActivity() != null) {
+            SharedPreferences sharedPref = android.support.v7.preference.PreferenceManager.getDefaultSharedPreferences(getActivity());
+            String listPref = sharedPref.getString(getString(R.string.key_preference_list), "0");
+            Toast.makeText(getActivity(), listPref, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_dashboard, menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_dashboard_settings:
+                Intent intent = new Intent(getActivity(), PreferenceActivity.class);
+                startActivity(intent);
+                break;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //region OnClickListener Interface
