@@ -25,14 +25,12 @@ public class PagingFruitViewModel extends ViewModel {
     }
 
     public LiveData<PagedList<FruitBo>> getFruitPagedListLiveData() {
-
         return fruitPagedListLiveData;
 
     }
 
-    public LiveData<PagedList<FruitDbo>> getFruitPaged(){
-
-        return fruitRepository.getFruitPaging();
+    public LiveData<PagedList<FruitDbo>> getFruitPagedByName(String fruitName) {
+        return fruitRepository.getFruitPagingByName(fruitName);
 
     }
 }

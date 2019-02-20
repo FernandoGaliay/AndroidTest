@@ -71,3 +71,9 @@ Job Scheduler
 * JobService (Sync data and persists in room)
 
 *Java Files*: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/main/java/com/example/androidtest/job/
+
+Test
+----
+* Unit test
+* Mockito: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/test/java/com/example/androidtest
+* JUnit: https://github.com/FernandoGaliay/AndroidTest/tree/development/app/src/androidTest/java/com/example/androidtest

@@ -52,7 +52,8 @@ public class PagingAdapter extends PagedListAdapter<FruitBo, PagingAdapter.ViewH
             super(itemView);
             nameLabel = itemView.findViewById(R.id.row_label_name);
             dateLabel = itemView.findViewById(R.id.row_label_date);
-
         }
+
+
     }
 }

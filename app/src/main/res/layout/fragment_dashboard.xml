@@ -40,4 +40,32 @@
         app:layout_constraintStart_toEndOf="@+id/dashboard_recycler_label"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/dashboard_snackbar_label"
+        style="@style/Button.Primary.Text_Normal_White.Two_Line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small"
+        android:layout_marginTop="@dimen/small"
+        android:text="@string/dashboard_snackbar"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard_notification_label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_constraint_label" />
+
+    <TextView
+        android:id="@+id/dashboard_notification_label"
+        style="@style/Button.Primary.Text_Normal_White.Two_Line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small"
+        android:layout_marginTop="@dimen/small"
+        android:text="@string/dashboard_notification"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/small"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dashboard_snackbar_label"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_recycler_label" />
+
 </android.support.constraint.ConstraintLayout>

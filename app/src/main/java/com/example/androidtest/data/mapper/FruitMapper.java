@@ -2,6 +2,7 @@ package com.example.androidtest.data.mapper;
 
 import com.example.androidtest.data.bo.FruitBo;
 import com.example.androidtest.data.dbo.FruitDbo;
+import com.example.androidtest.data.dbo.LocationDbo;
 import com.example.androidtest.data.dto.FruitDto;
 
 import java.util.ArrayList;
@@ -90,14 +91,10 @@ public class FruitMapper {
 
         if (fruitBo != null) {
 
-            fruitDbo = new FruitDbo(fruitBo.getId(), fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone(), null, fruitBo.getCountryId());
+            fruitDbo = new FruitDbo(fruitBo.getId(), fruitBo.getItem(), fruitBo.getCategory(), fruitBo.getFarmName(), fruitBo.getPhone(), LocationDbo.getDefaultInstance(), fruitBo.getCountryId());
 
         }
         return fruitDbo;
-    }
-
-    public static List<FruitDbo> boToDbo(List<FruitBo> fruitBoList) {
-        return boToDbo(fruitBoList, -1);
     }
 
 

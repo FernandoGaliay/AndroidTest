@@ -10,7 +10,7 @@ public class CountryWithFruit {
     @Embedded
     private CountryDbo countryDbo;
 
-    @Relation(parentColumn = "id", entityColumn = "country_id")
+    @Relation(parentColumn = "id", entityColumn = "country_id", entity = FruitDbo.class)
     private List<FruitDbo> fruitDboList;
 
     public CountryDbo getCountryDbo() {

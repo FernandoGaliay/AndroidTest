@@ -16,4 +16,57 @@
     <string name="basic_constraints_description">Description:</string>
     <string name="basic_constraints_resume">Resume:</string>
     <string name="paging_title">Paging RecyclerView</string>
+    <string name="dashboard_snackbar">Snackbar</string>
+    <string name="dashboard_snackbar_message">Snackbar message test</string>
+    <string name="snackbar_action_click">CLICK ON</string>
+    <string name="paging_search">Search</string>
+    <string name="dashboard_notification">Notifications</string>
+    <string name="notification_create">Create</string>
+    <string name="notification_dismiss">Dismiss</string>
+    <string name="notification_update">Update</string>
+    <string name="notification_title">Title</string>
+    <string name="notification_description">This is the description for a notification.</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Settings -->
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string name="preference_title">Preference</string>
+    <string name="key_preference_list" translatable="false">key_preference_list</string>
+    <string name="key_preference_edittext">key_preference_edittext</string>
+    <string name="preference_dialog_title">Elige una opcion</string>
+    <string name="preference_label_edittext">Edit text preference</string>
+    <string name="preference_label_list">List Preference</string>
+    <string name="key_preference_checkbox">check_box_preference_1</string>
+    <string name="preference_label_checkbox">Check box preference</string>
+    <string name="preference_label_switch">Switch preference</string>
+    <string name="key_preference_switch">preference_switch</string>
+    <string name="preference_label_switch_summary">This is switch preference</string>
+    <string name="content_description_detail_image">Detail image</string>
 </resources>

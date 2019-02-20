@@ -30,7 +30,7 @@ public class FruitPositionalDataSource extends PositionalDataSource<FruitBo> {
             @Override
             public void onSuccess(List<FruitBo> data) {
 
-                callback.onResult(data, params.requestedStartPosition, 1000);
+                callback.onResult(data, params.requestedStartPosition, 50);
 
             }
 

@@ -23,9 +23,10 @@ public class InitializationViewModel extends ViewModel {
 
         JobInfo jobIno = new JobInfo.Builder(JobIdConstant.JOB_SYNC_DATA, componentName)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                .setRequiresCharging(true)
                 .build();
 
-        jobScheduler.schedule(jobIno);
+//        jobScheduler.schedule(jobIno);
 
     }
 
