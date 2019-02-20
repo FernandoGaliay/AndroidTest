@@ -68,4 +68,5 @@
     <string name="preference_label_switch">Switch preference</string>
     <string name="key_preference_switch">preference_switch</string>
     <string name="preference_label_switch_summary">This is switch preference</string>
+    <string name="content_description_detail_image">Detail image</string>
 </resources>

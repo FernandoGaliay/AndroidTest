@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:animateLayoutChanges="true"
+    android:focusable="true"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/basic_constraints_top_img"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/content_description_detail_image"
         app:layout_constraintBottom_toTopOf="@id/basic_constraints_header_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +79,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Name"
+        android:hint="Inserta un texto"
         app:layout_constraintBaseline_toBaselineOf="@+id/basic_constraints_title_label"
         app:layout_constraintLeft_toRightOf="@id/basic_constraints_labels_barrier" />
 
