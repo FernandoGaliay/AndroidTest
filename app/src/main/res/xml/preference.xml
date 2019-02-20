@@ -3,15 +3,15 @@
 
     <PreferenceCategory android:title="Primary category">
 
-        <SwitchPreferenceCompat
-            android:key="preference_switch"
-            android:summary="This is switch preference"
-            android:title="Switch preference" />
+        <SwitchPreference
+            android:key="@string/key_preference_switch"
+            android:summary="@string/preference_label_switch_summary"
+            android:title="@string/preference_label_switch" />
 
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="check_box_preference_1"
-            android:title="Check box preference" />
+            android:key="@string/key_preference_checkbox"
+            android:title="@string/preference_label_checkbox" />
 
     </PreferenceCategory>
 
@@ -19,17 +19,18 @@
 
         <EditTextPreference
             android:defaultValue="Default value"
-            android:key="edit_text_preference_1"
+            android:key="@string/key_preference_edittext"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:title="Edit text preference" />
+            android:title="@string/preference_label_edittext" />
 
         <ListPreference
             android:key="@string/key_preference_list"
-            android:title="@string/key_preference_list"
-            android:dialogTitle="Elige una"
+            android:title="@string/preference_label_list"
+            android:dialogTitle="@string/preference_dialog_title"
             android:entries="@array/list_preference_entries"
-            android:entryValues="@array/list_preference_entry_values"/>
+            android:entryValues="@array/list_preference_entry_values"
+            android:defaultValue="1"/>
 
     </PreferenceCategory>
 

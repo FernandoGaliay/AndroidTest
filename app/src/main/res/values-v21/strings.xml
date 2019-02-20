@@ -11,4 +11,7 @@
     <string name="notification_title">Title</string>
     <string name="notification_description">This is the description for a notification.</string>
     <string name="preference_title">Preference</string>
+    <string name="preference_dialog_title">Elige una opcion</string>
+    <string name="preference_label_switch">Switch preference</string>
+    <string name="preference_label_switch_summary">This is switch preference</string>
 </resources>
